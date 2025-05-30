@@ -7,14 +7,16 @@ export const metadata={
 
 export default function Home() {
     return <div>
-        <h1 className="text-center">Joel's Notes</h1>
-        <p>This site contains notes from my classes and self-learning for referencing. It is a collection of a tiny subset of all of human knowledge which I have been able to wrap my head around.</p>
+        <div className="j_container">
+            <h1 className="text-center">Joel's Notes</h1>
+            <p>This site contains notes from my classes and self-learning for referencing. It is a collection of a tiny subset of all of human knowledge which I have been able to wrap my head around.</p>
 
-        <ul>
-            <li><Link href='/e&m'>Electricity & Magnetism (Physics 43)</Link></li>
-            <li><Link href='/ode'>ODEs (CME 102)</Link></li>
-            <li><Link href='/mechanics'>Mechanics</Link></li>
-        </ul>
+            <ul>
+                <li><Link href='/e&m'>Electricity & Magnetism (Physics 43)</Link></li>
+                <li><Link href='/ode'>ODEs (CME 102)</Link></li>
+                <li><Link href='/mechanics'>Mechanics</Link></li>
+            </ul>
+        </div>
 
         {/* <h3>Computer Science</h3>
         <ul>

@@ -2,8 +2,8 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
-export default async function Notes({ params }: { params: Promise<{ title: string }> }) {
-    const rawTitle=(await params).title;
+export default async function Notes({ params }: { params: Promise<{ note: string }> }) {
+    const rawTitle=(await params).note;
     const title=decodeURIComponent(rawTitle);
     
     let content='';
@@ -18,7 +18,7 @@ export default async function Notes({ params }: { params: Promise<{ title: strin
         notFound=true;
     }
     
-    return <div>
+    return <div className='pt-8 j_container'>
         {
             notFound
             ? <div>This note has not been created yet</div>
