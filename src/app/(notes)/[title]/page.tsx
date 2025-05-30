@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
-export default async function Notes({ params }: { params: { title: string } }) {
+export default async function Notes({ params }: { params: Promise<{ title: string }> }) {
     const rawTitle=(await params).title;
     const title=decodeURIComponent(rawTitle);
     
