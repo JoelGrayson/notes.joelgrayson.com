@@ -14,7 +14,16 @@ export default async function Notes() {
     );
 
     return <div>
-        <MDXRemote source={content} />
+        <MDXRemote
+            source={content}
+            components={
+                {
+                    code(props) {
+                        return <code className='text-red-500' {...props} />
+                    }
+                }
+            }
+        />
     </div>;
 }
 
