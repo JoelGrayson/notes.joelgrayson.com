@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata={
+    title: "Joel's Notes",
+    description: 'This site contains notes from my classes and self-learning for referencing. It is a collection of a tiny subset of all of human knowledge which I have been able to wrap my head around.'
+};
+
 export default function Home() {
     return <div>
         <h1 className="text-center">Joel's Notes</h1>
