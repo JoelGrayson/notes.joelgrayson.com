@@ -7,9 +7,10 @@ export const metadata={
     description: 'Here are my notes'
 }
 
-export default async function Notes() {
+export default async function Notes({ params }: { params: { title: string } }) {
+    console.log(params);
     const content=await fs.readFile(
-        path.join(process.cwd(), 'src/notes', 'hi-there.mdx'),
+        path.join(process.cwd(), 'src/notes', `${params.title}.mdx`),
         'utf-8'
     );
 
