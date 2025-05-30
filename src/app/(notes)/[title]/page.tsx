@@ -3,8 +3,8 @@ import path from 'path';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 export default async function Notes({ params }: { params: { title: string } }) {
-    let rawTitle=(await params).title;
-    let title=decodeURIComponent(rawTitle);
+    const rawTitle=(await params).title;
+    const title=decodeURIComponent(rawTitle);
     
     let content='';
     let notFound=false;
