@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata={
     title: "Joel's Notes",
-    description: 'This site contains notes from my classes and self-learning for referencing. It is a collection of a tiny subset of all of human knowledge which I have been able to wrap my head around.'
+    description: 'This site contains notes from my classes and self-learning for referencing. It is part of a tiny subset of all of human knowledge which I have been able to wrap my head around.'
 };
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
