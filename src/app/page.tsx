@@ -14,7 +14,7 @@ export default function Home() {
             <ul>
                 <li><Link href='/e&m'>Electricity & Magnetism (Physics 43)</Link></li>
                 <li><Link href='/ode'>ODEs (CME 102)</Link></li>
-                <li><Link href='/mechanics'>Mechanics</Link></li>
+                {/* <li><Link href='/mechanics'>Mechanics</Link></li> */}
             </ul>
         </div>
 

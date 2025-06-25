@@ -3,7 +3,10 @@ import path from 'path';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { compileMDX } from 'next-mdx-remote/rsc';
-
+import React, { ComponentPropsWithoutRef } from 'react';
+import Link from 'next/link';
+import { TbExternalLink as OpenInNewTabIcon } from "react-icons/tb";
+ 
 export default async function Notes({ params }: { params: Promise<{ note: string }> }) {
     const rawTitle=(await params).note;
     const title=decodeURIComponent(rawTitle);
@@ -21,7 +24,6 @@ export default async function Notes({ params }: { params: Promise<{ note: string
     }
 
     const processedContentString=obsidianImageToHTML(stringContent)
-        // .replaceAll(/(?<!\\)\</g, '\\<'); //turn < into \< and keep \< as is
     console.log(processedContentString);
     const { content, frontmatter }=await compileMDX({
         source: processedContentString,
@@ -30,37 +32,45 @@ export default async function Notes({ params }: { params: Promise<{ note: string
                 remarkPlugins: [remarkMath],
                 rehypePlugins: [rehypeKatex]
             }
+        },
+        components: {
+            h1(props: ComponentPropsWithoutRef<'h1'>) {
+                return <h1 className='font-medium text-center' {...props} />;
+            },
+            PDF({ src, width='100%', height='800' }: { src: string, width: number | string, height: number | string }) {
+                return <div className='relative'>
+                    <div className="flex justify-end pr-3 pb-2">
+                        <Link href={src} target='_blank' className='unstyled'>
+                            <OpenInNewTabIcon size={20} />
+                        </Link>
+                    </div>
+                    <object type="application/pdf" data={src} width={width} height={height} />
+                </div>;
+            }
         }
     });
 
-    console.log('compiledContent', content);
-    
-    return <div className='pt-8 j_container'>
-        {content}
-        {/* {
+    return <div className='j_container'>
+        {
             notFound
-            ? <div>This note has not been created yet</div>
-            : <MDXRemote
-                // source={source.compiledSource}
-                {...source}
-                components={{
-                    code(props) {
-                        return <code className='text-red-500' {...props} />
-                    }
-                }}
-            />
-        } */}
+            ? <div>This note could not be found. Either it has not been created yet, was deleted, or was never created.</div>
+            : content
+        }
     </div>;
 }
 
 function obsidianImageToHTML(content: string): string {
     return content.replaceAll(
         /\!\[\[([^|]+?)(?:\|(\d+))?\]\]/g,
-        (_, url, width)=>
-            `<img src="/media/${url}"${ width ? ` width="${width}" ` : ' ' }/>`
-        // '<img src="/media/$1" width="$2" />'
+        (_, url: string, width: string)=>{
+            const src=`/media/${url}`;
+
+            if (url.endsWith('.pdf')) {
+                return `<PDF src="${src}" />`;
+            } else {
+                return `<img src="${src}"${ width ? ` width="${width}" ` : ' ' }/>`;
+            }
+        }
     );
 }
-
-// function obsidianLatexToLatex
 
