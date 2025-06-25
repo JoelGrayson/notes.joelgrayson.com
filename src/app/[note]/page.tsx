@@ -1,19 +1,18 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { serialize } from 'next-mdx-remote/serialize';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import { compileMDX } from 'next-mdx-remote/rsc';
 
 export default async function Notes({ params }: { params: Promise<{ note: string }> }) {
     const rawTitle=(await params).note;
     const title=decodeURIComponent(rawTitle);
     
-    let content='';
+    let stringContent='';
     let notFound=false;
 
     try {
-        content=await fs.readFile(
+        stringContent=await fs.readFile(
             path.join(process.cwd(), 'src/do-not-edit/notes-copied-from-obsidian', `${title}.md`),
             'utf-8'
         );
@@ -21,19 +20,24 @@ export default async function Notes({ params }: { params: Promise<{ note: string
         notFound=true;
     }
 
-    const imagesProcessed=obsidianImageToHTML(content);
-    content='Hi **there** this is *italicized*.'
-    const source=await serialize(content, {
-        mdxOptions: {
-            remarkPlugins: [remarkMath],
-            rehypePlugins: [rehypeKatex],
-            format: 'mdx'
+    const processedContentString=obsidianImageToHTML(stringContent)
+        // .replaceAll(/(?<!\\)\</g, '\\<'); //turn < into \< and keep \< as is
+    console.log(processedContentString);
+    const { content, frontmatter }=await compileMDX({
+        source: processedContentString,
+        options: {
+            mdxOptions: {
+                remarkPlugins: [remarkMath],
+                rehypePlugins: [rehypeKatex]
+            }
         }
     });
-    console.log('source', source, 'from content', content);
 
+    console.log('compiledContent', content);
+    
     return <div className='pt-8 j_container'>
-        {
+        {content}
+        {/* {
             notFound
             ? <div>This note has not been created yet</div>
             : <MDXRemote
@@ -45,7 +49,7 @@ export default async function Notes({ params }: { params: Promise<{ note: string
                     }
                 }}
             />
-        }
+        } */}
     </div>;
 }
 
