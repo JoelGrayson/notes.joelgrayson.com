@@ -1,3 +1,4 @@
+# Mathematical Foundations of Computing
 * Generalized pigeonhole principle
 	* For p pigeons and h holes,
 		* some hole will have at least $\lceil {p\over h} \rceil$ pigeons in it

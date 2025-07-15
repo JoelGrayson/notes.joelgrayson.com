@@ -50,7 +50,7 @@ export default async function Notes({ params }: { params: Promise<{ note: string
         }
     });
 
-    return <div className='j_container'>
+    return <div className='j_container' style={{ paddingBottom: 60 }}>
         {
             notFound
             ? <div>This note could not be found. Either it has not been created yet, was deleted, or was never created.</div>
