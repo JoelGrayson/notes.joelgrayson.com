@@ -4,20 +4,28 @@
 		* some hole will have at least $\lceil {p\over h} \rceil$ pigeons in it
 		* some hole will have at most $\lfloor{p \over h}\rfloor$ pigeons in it
 * The "composition of f and g" is $g\circ f$ 
-![[cs103-proof-table.jpg|500]]
-* Formal defns (A is f's domain and B is codomain)
+* Translating first-order logic to English in a proof:
+	![[cs103-proof-table.jpg|400]]
+* Functions
+	* domain - function defined for every element of domain
+	* codomain - output is always in codomain. Not all els in codomain must have an associated output of the f tho
+	  ![[domain-codomain.jpg|140]]
+	* $f : A\to B$ means f has domain A and codomain B
 	* Involution: a function f is an involution if $\forall a\in A.f(f(a))=a$
-		* Layman: apply twice gives same thing back
+		* Layman: apply twice gives same thing back. f is an involution if f(f(x))=x
 	* Surjective: $\forall b\in B.\exists a\in A.(f(a)=b)$
 		* Layman: all outputs have an input that points to it
 	* Injective: $\forall a_1\in A.\forall a_2\in A.(a_1\not=a_2\to f(a_1)\not=f(a_2))$
 		* Equivalently $\forall a_1\in A.\forall a_2\in A.(f(a_1)=f(a_2)\to a_1=a_2)$
-		* Layman: one-to-one function. No input maps to two outputs and no output maps to two inputs.
+		* Layman: one-to-one function. No no output maps to two inputs. Every output maps to 1 or 0 inputs.
+			* one-to-one function (not every codomain element needs to be used)
+			* horizontal line test in y=f(x) tells you if a function is injective
+	* bijective - injective and surjective, one-to-one correspondence (ever codomain element used)
 	* Function needs to be:
 		1. $\forall a\in A.\exists b\in B.(f(a)=b)$ - total
 			* Defined on every element in domain, as opposed to partial, which means that f(a) is undefined for some a in the domain
 				* Partial - $\exists a\in A.f(a)\text{ is undefined}$
-		2. $\forall a_1\in A.\forall a_2\in A.(a_1=a_2\to f(a_1)=f(a_2))$ - deterministic
+		2. $\forall a_1\in A.\forall a_2\in A.(a_1=a_2\to f(a_1)=f(a_2))$ - deterministic (same input always produces same output)
 * Proof explains why theorem is true
   Disproof explains why claim is false (such as through a counterexample)
 * Transformations
@@ -93,5 +101,4 @@
 
 ### Derivations
 ![[7.7.25-proposition-equality.jpg]]
-
 

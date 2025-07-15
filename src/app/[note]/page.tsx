@@ -24,7 +24,7 @@ export default async function Notes({ params }: { params: Promise<{ note: string
     }
 
     const processedContentString=obsidianImageToHTML(stringContent)
-    console.log(processedContentString);
+    // console.log('Processed string (Obsidian images converted to HTML)', processedContentString);
     const { content, frontmatter }=await compileMDX({
         source: processedContentString,
         options: {
