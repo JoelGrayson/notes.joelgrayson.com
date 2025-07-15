@@ -2,16 +2,18 @@ import Link from "next/link";
 
 export const metadata={
     title: "Joel's Notes",
-    description: 'This site contains notes from my classes and self-learning for referencing. It is part of a tiny subset of all of human knowledge which I have been able to wrap my head around.'
+    description: 'This site contains notes from my classes and self-learning for referencing. It is part of the tiny subset of all of human knowledge that I have been able to wrap my head around.'
 };
 
 export default function Home() {
     return <div>
         <div className="j_container">
             <h1 className="text-center">Joel's Notes</h1>
-            <p>This site contains notes from my classes and self-learning for referencing. It is part of a tiny subset of all of human knowledge which I have been able to wrap my head around.</p>
+            <p>This site contains notes from my classes and self-learning for referencing. It is part of the tiny subset of all of human knowledge that I have been able to wrap my head around.</p>
 
             <ul>
+                <li><Link href='/circuits'>Circuits (ENGR 40M and EE 101A)</Link></li>
+                <li><Link href='/mathematical-foundations-of-computing'>Mathematical Foundations of Computing (CS 103)</Link></li>
                 <li><Link href='/e&m'>Electricity & Magnetism (Physics 43)</Link></li>
                 <li><Link href='/ode'>ODEs (CME 102)</Link></li>
                 {/* <li><Link href='/mechanics'>Mechanics</Link></li> */}

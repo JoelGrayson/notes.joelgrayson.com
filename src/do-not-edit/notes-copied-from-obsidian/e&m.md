@@ -19,11 +19,15 @@ I learned about electricity and magnetism in spring quarter of freshman year in 
 
 * Circuits
 	* Time constant τ tells you how long it takes for the current to reach 63.2% of its final value
-
+* Right-hand rules
+	* Current-carrying wire's magnetic field: point thumb in wire current's direction, fingers curl around in the direction of the B-field lines
+	* Solenoid: curl fingers in the direction of the current in the solenoid, thumb points in direction of B-field
+	* For cross-product in $\vec F=q\vec v\times \vec b$ (force on particle from B-field) and $\vec F=Id\vec l\times B$ (force on a wire with current I from a B-field)
 
 ### Equation Sheet
 ![[e&m-reference-sheet.jpg]]
 ![[e&m-reference-sheet-part-2.jpg]]
+
 
 ### Class Equation Sheet
 ![[Final_Exam_Phys43_Sp25_Equation_Sheet.pdf]]
@@ -96,22 +100,25 @@ I learned about electricity and magnetism in spring quarter of freshman year in 
 # Derivations
 
 ### Deriving LR Circuit
+**Charging**
 ![[IMG_1494.jpeg]]
 ![[IMG_1495.jpeg]]
 * LR circuits
 	* time constant $\tau_L=\frac L R$
 	* energy stored $U_L=\frac12 LI^2$
-	* 
+
+**Discharging**
+
 
 ### Deriving LRC Circuits
 ![[Pasted image 20250605130427.png]]
 
 ### Deriving RC Circuits
-Charging
+**Charging**
 ![[notes.joelgrayson.com/media/IMG_1554.jpeg]]
 ![[IMG_1555.jpeg]]
 
-Discharging
+**Discharging**
 ![[IMG_1556.jpeg]]
 
 ### Deriving $\vec F=I(d\vec l\times \vec B)$
