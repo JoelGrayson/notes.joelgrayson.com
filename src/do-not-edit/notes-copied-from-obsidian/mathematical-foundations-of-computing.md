@@ -9,7 +9,7 @@
 	* Generalized pigeonhole principle
 		* For p pigeons and h holes,
 			* some hole will have at least $\lceil {p\over h} \rceil$ pigeons in it (some hole has >= this)
-			* some hole will have at most $\lfloor{p \over h}\rfloor$ pigeons in it (some hole has <= this)
+			* some hole will have at most $\lfloor{p \over h}\rfloor$ pigeons in it (some hole has \<= this)
 * $G^C$ is the graph complement of $G$. All edges are turned into not edges and all not edges are turned into edges in $G^C$.
 * subset symbols
 	* $\subsetneq$ - proper/strict subset. Cannot be itself.

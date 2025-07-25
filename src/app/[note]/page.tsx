@@ -24,6 +24,8 @@ export default async function Notes({ params }: { params: Promise<{ note: string
     }
 
     const processedContentString=obsidianImageToHTML(stringContent)
+        .replace(/\u00A0/g, ' '); //removes the LaTeX incompatible input warning (nbsp)
+
     // console.log('Processed string (Obsidian images converted to HTML)', processedContentString);
     const { content, frontmatter }=await compileMDX({
         source: processedContentString,
@@ -68,7 +70,7 @@ function obsidianImageToHTML(content: string): string {
             if (url.endsWith('.pdf')) {
                 return `<PDF src="${src}" />`;
             } else {
-                return `<img src="${src}"${ width ? ` width="${width}" ` : ' ' }/>`;
+                return `<img src="${src}"${ width ? ` width="${width}" ` : ' ' } />`;
             }
         }
     );
