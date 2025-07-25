@@ -1,6 +1,7 @@
 # Circuits
 This is a combination of knowledge that I have gained from ENGR 40M and EE 101A, both of which I took during summer quarter in 2025, and self-learning.
 
+* 
 - Tellegen's theorem - in an electrical network, sum of instantaneous powers in all branches is 0
 * High voltage is used in transmission because
 	* High voltage means that the current goes down for the same power because $P=IV$
@@ -9,7 +10,6 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 	* $v=Li'$
 	* equivalent combinations like that of a resistor
 	* Time constant $\tau=\frac{L}R$
-	* 
 * Capacitors
 	* $\epsilon_r=\frac\epsilon{\epsilon_0}$
 		* $\epsilon_r$ - relative dielectric constant
@@ -26,7 +26,6 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 		* IC capacitor
 * Waves
 	* $\frac1f=T=\frac\lambda{v}\to f=\frac{v}\lambda$
-	* 
 * Nodal analysis: write out KCL (for nodes with unknown voltages) in terms of voltages
 	* Full steps
 		1. Choose reference node and label the nodes' voltages. Use $V_1, V_2, ...$ for unknown. Use voltage divider to find out relevant voltages if possible.
@@ -40,7 +39,17 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 * Resistor Chart
 	![[Screenshot 2025-07-01 at 8.02.29 PM.jpg|300]]
 * Double-subscript notation:
-  ![[double-subscript-notation.jpg]]
+  ![[double-subscript-notation.jpg|300]]
+* Combination in series and parallel
+	* Equivalent resistance for series resistors is sum because KVL means voltages add up and current is the same in series: $V_\text{eq}=V_1+V_2+V_3$ becomes $I(R_{\text{eq}})=I(R_1+R_2+R_3)$
+	* Equivalent resistance for parallel resistors is the way it is because KCL means currents add up and voltages constant: $I_{\rm eq}=I_1+I_2+I_3$ becomes $\frac V{R_{\rm eq}}=\frac V{R_1}+\frac V{R_2}+\frac V{R_3}$
+	* These all have the same behavior for equivalent resistance/inductor:
+	  $V=IR$ - resistance
+	  $V=LI'$ - inductance
+	* Likewise, these all act the same (flipped, so in parallel they act like resistors would in series)
+	  $I=VG$ - conductance
+	  $I=CV'$ - capacitance
+
 
 
 ## Derivations
@@ -69,4 +78,5 @@ For parallel resistors, voltage is the same but current is divided across the re
 
 ### First Principles Thinking about Batteries in Series
 ![[first-principles-thinking-about-batteries-in-series.png]]
+
 

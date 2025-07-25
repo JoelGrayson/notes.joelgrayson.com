@@ -1,4 +1,21 @@
 # Mathematical Foundations of Computing
+* Induction
+	* P(0) is true - basis/base case
+	* P(k) → P(k+1) - inductive step
+		* P(k) - inductive hypothesis
+	* To prove
+* Pigeonhole principle
+	* if $n$ items are put into $m$ containers, with $n > m$ , then at least one container must contain more than one item
+	* Generalized pigeonhole principle
+		* For p pigeons and h holes,
+			* some hole will have at least $\lceil {p\over h} \rceil$ pigeons in it (some hole has >= this)
+			* some hole will have at most $\lfloor{p \over h}\rfloor$ pigeons in it (some hole has <= this)
+* $G^C$ is the graph complement of $G$. All edges are turned into not edges and all not edges are turned into edges in $G^C$.
+* subset symbols
+	* $\subsetneq$ - proper/strict subset. Cannot be itself.
+	* $\subseteq$ - subset or equal
+		* includes the improper subset case in which a set is the (improper) subset of itself
+	* $\subset$ is ambiguous (could mean $\subseteq$ or $\subsetneq$ in different textbooks)
 * Generalized pigeonhole principle
 	* For p pigeons and h holes,
 		* some hole will have at least $\lceil {p\over h} \rceil$ pigeons in it
@@ -20,6 +37,7 @@
 		* Layman: one-to-one function. No no output maps to two inputs. Every output maps to 1 or 0 inputs.
 			* one-to-one function (not every codomain element needs to be used)
 			* horizontal line test in y=f(x) tells you if a function is injective
+	* Said differently, surjective associates each codomain element with at least one domain element and injective associates each codomain element with at most one domain element
 	* bijective - injective and surjective, one-to-one correspondence (ever codomain element used)
 	* Function needs to be:
 		1. $\forall a\in A.\exists b\in B.(f(a)=b)$ - total
