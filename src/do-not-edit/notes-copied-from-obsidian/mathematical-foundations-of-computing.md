@@ -6,10 +6,11 @@
 	* To prove
 * Pigeonhole principle
 	* if $n$ items are put into $m$ containers, with $n > m$ , then at least one container must contain more than one item
-	* Generalized pigeonhole principle
+	* Generalized pigeonhole principle (AKA strong pigeonhole principle)
 		* For p pigeons and h holes,
-			* some hole will have at least $\lceil {p\over h} \rceil$ pigeons in it (some hole has >= this)
-			* some hole will have at most $\lfloor{p \over h}\rfloor$ pigeons in it (some hole has \<= this)
+			* some crowded hole will have at least $\lceil {p\over h} \rceil$ pigeons in it
+			* not all holes can have more than $\lfloor{p \over h}\rfloor$ pigeons in them
+				* some hole will have $\lfloor{p \over h}\rfloor$ or fewer pigeons
 * $G^C$ is the graph complement of $G$. All edges are turned into not edges and all not edges are turned into edges in $G^C$.
 * subset symbols
 	* $\subsetneq$ - proper/strict subset. Cannot be itself.
@@ -67,6 +68,8 @@
 			* $\forall$ to $\exists$
 		* De Morgan's Law is like distributing the $\lnot$ and flipping the operator (from $\land$ to $\lor$ or vice versa)
 		* When applying $\lnot$ to the biconditional ($\leftrightarrow$) negate either side and keep the operator same
+		* $p \to q$ is the same as $\lnot(p \land \lnot q)$
+			* only false when p is true and q is false
 	* Others
 		* $p\to b\to r$ same as $p\land q\to r$
 * The Aristotelian Forms
@@ -103,10 +106,6 @@
 * Propositional logic
 	* Propositional variable
 	* Propositional connectives
-* $p \to q$ is the same as $\lnot(p \land \lnot q)$
-	* only false when p is true and q is false
-![[implies-equivalence.jpg]]
-![[de-morgans-laws.jpg]]
 * Universal statement - for all x, some \[property] holds for x (mn works on x **universally**)
 * Existential statement - there is some x where \[property] holds for x (mn some x **exists** for it to work)
 * Proof types
@@ -118,5 +117,10 @@
 
 
 ### Derivations
+#### $p\to q\equiv\lnot p\vee q$
+![[implies-equivalence.jpg]]
+#### De Morgan's Laws
+![[de-morgans-laws.jpg]]
+#### $(A\lor B)\leftrightarrow(\lnot A\to B)\leftrightarrow(\lnot B\to A)$
 ![[7.7.25-proposition-equality.jpg]]
 

@@ -2,6 +2,8 @@
 This is a combination of knowledge that I have gained from ENGR 40M and EE 101A, both of which I took during summer quarter in 2025, and self-learning.
 
 * 
+* NOT, NAND, NOR Gates
+  ![[NOT-NAND-NOR.jpg]]
 - Tellegen's theorem - in an electrical network, sum of instantaneous powers in all branches is 0
 * High voltage is used in transmission because
 	* High voltage means that the current goes down for the same power because $P=IV$
