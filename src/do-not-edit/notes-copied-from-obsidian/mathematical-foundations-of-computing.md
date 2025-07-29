@@ -1,4 +1,33 @@
 # Mathematical Foundations of Computing
+### Computability Theory
+* The following are equivalent: L is a regular language, there exists an NFA or DFA or regex called X such that $\mathscr L(X)=L$ (the language of X is L)
+* Kleene closure/star of a language L is L*, which is the set of all strings that can be formed by concatenating any number of strings in L (e.g., L={a,b} means L*={ε, a, b, aa, ab, ba, bb, aaa, ...})
+* Closure properties of languages. If $L_1$ and $L_2$ are regular languages, so are these: $\overline {L_1},\quad L_1\cup L_2,\quad L_1\cap L_2,\quad L_1L_2,\quad L_1^*$
+* Finite automaton - collection of states joined by transitions, has a start state
+	* Some states are accepting states. If automaton ends at accepting state, it accepts the input else rejects the input
+	* DFA (Deterministic Finite Automaton) - exactly 1 transition at each state for each symbol in $\Sigma$
+	* NFA (non-deterministic finite automaton) - each state has 0 or multiple transitions
+		* If there is one path that works, NFA accepts
+		* Path dies if cannot move at a certain symbol
+		* ε-transition - transition that doesn't consume input
+		* Works by perfect positive guessing or massive parallelism
+	* Subset construction (AKA powerset construction) is a method for turning an NFA into a DFA
+	* A language is regular if there is a DFA D (or NFA) such that $\mathcal L(D)=L$, in which case D `recognizes` L
+* Language - string\[\]
+  string - character\[\]
+  alphabet - set\<character\>
+	* (formal) language - set of strings
+		* language over $\Sigma$ if is set of strings each over $\Sigma$
+		* $\Sigma^*$ is the set of all strings composed from letters in $\Sigma$
+	* String
+		* empty string - $\varepsilon$
+		* String over $\Sigma$ - finite sequence of characters from $\Sigma$ (such as aaaabbaba for $\Sigma=\{a,b\}$)
+	* Alphabet $\Sigma$ - set of characters
+	* Characters
+* Automaton - mathematical model of a computer (abstraction of real computer)
+* states linked by transitions
+
+### Discrete Math
 * Induction
 	* P(0) is true - basis/base case
 	* P(k) → P(k+1) - inductive step
