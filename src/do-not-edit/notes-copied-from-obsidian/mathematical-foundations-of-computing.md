@@ -1,7 +1,7 @@
 # Mathematical Foundations of Computing
 ### Computability Theory
 * The following are equivalent: L is a regular language, there exists an NFA or DFA or regex called X such that $\mathscr L(X)=L$ (the language of X is L)
-* Kleene closure/star of a language L is L*, which is the set of all strings that can be formed by concatenating any number of strings in L (e.g., L={a,b} means L*={ε, a, b, aa, ab, ba, bb, aaa, ...})
+* Kleene closure/star of a language L is L\*, which is the set of all strings that can be formed by concatenating any number of strings in L (e.g., L=\{a,b\} means L\*=\{ε, a, b, aa, ab, ba, bb, aaa, ...\})
 * Closure properties of languages. If $L_1$ and $L_2$ are regular languages, so are these: $\overline {L_1},\quad L_1\cup L_2,\quad L_1\cap L_2,\quad L_1L_2,\quad L_1^*$
 * Finite automaton - collection of states joined by transitions, has a start state
 	* Some states are accepting states. If automaton ends at accepting state, it accepts the input else rejects the input
