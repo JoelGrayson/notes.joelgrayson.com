@@ -2,23 +2,20 @@
 This is a combination of knowledge that I have gained from ENGR 40M and EE 101A, both of which I took during summer quarter in 2025, and self-learning.
 
 * 
-* Creating cMOS circuits from boolean expressions
-	1. Invert the expression to construct the nMOS (pull-down)
-	2. Swap the AND and OR gates for the pMOS (pull-up)
-		* This works because negating the nMOS expression leads to a pMOS expression with AND and OR gates swapped and the input swapped due to De Morgan's Law. Since pMOS has an inverter built in, the inputs are automatically swapped, so we only have to worry about swapping the AND and OR gates.
 * NOT, NAND, NOR Gates
   ![[NOT-NAND-NOR.jpg]]
 - Tellegen's theorem - in an electrical network, sum of instantaneous powers in all branches is 0
 * High voltage is used in transmission because
 	* High voltage means that the current goes down for the same power because $P=IV$
 		* A lower current means that the voltage drop between the generator and substation, $V=IR$, is smaller since the $R$ of the transmission line is constant and the $I$ decreases. The voltage drop across the transmission lines modeled as resistors went down even though the voltage on the line is higher. With a constant R and a lower current with HV, $P_{\text{loss}}=I^2R$ goes down and $P_{\text{loss}}=\frac{V^2}R$ also goes down since V in the power equation measures the voltage drop, which went down.
-
 * Inductor
+	* constant-current device
 	* $v=Li'$
-	* $w(t)=\frac12LI^2$
 	* equivalent combinations like that of a resistor
 	* Time constant $\tau=\frac{L}R$
 * Capacitors
+	* constant-voltage device
+	* RC charging: $v(t)=v(\infty)+(v(0^+)-v(\infty))e^{\frac{-t}{RC}}$
 	* $\epsilon_r=\frac\epsilon{\epsilon_0}$
 		* $\epsilon_r$ - relative dielectric constant
 		* $\epsilon$ - dielectric constant
@@ -26,14 +23,12 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 	* $C=\frac{\epsilon A}{d}$
 		* C ∝ A and C ∝ 1/d
 	* $Q=CV$ and $I=CV'$
-	* $w(t)=\frac12CV^2$
 	* Types
 		* Ceramic - cheap, low C
 		* Polymer - HV
 		* Electrolytic - polar, large C
 		* Surface mount capacitors
 		* IC capacitor
-	* A dielectric increases capacitance because it decreases the e-field (by creating an opposing e-field) which decreases the voltage across for a same given capacitance and Q=CV so C=Q/V so decreasing voltage increases capacitance
 * Waves
 	* $\frac1f=T=\frac\lambda{v}\to f=\frac{v}\lambda$
 * Nodal analysis: write out KCL (for nodes with unknown voltages) in terms of voltages
@@ -83,10 +78,10 @@ For parallel resistors, voltage is the same but current is divided across the re
 	* $R_\triangle = 3R_Y$
 
 ### Deriving RMS Voltage for a Sinusoidal AC
-![[IMG_1996.jpeg]]
+![[IMG_1996.jpg]]
 
 
 ### First Principles Thinking about Batteries in Series
-![[first-principles-thinking-about-batteries-in-series.png]]
+![[first-principles-thinking-about-batteries-in-series.jpg]]
 
 

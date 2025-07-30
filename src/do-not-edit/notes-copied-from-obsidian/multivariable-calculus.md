@@ -46,9 +46,9 @@ I learned about multivariable calculus in spring quarter of freshman year in Mat
 
 <details>
 <summary>Old reference sheet</summary>
-![[IMG_1516.jpeg]]
-![[IMG_1517.jpeg]]
-![[IMG_1518.jpeg]]
+![[IMG_1516.jpg]]
+![[IMG_1517.jpg]]
+![[IMG_1518.jpg]]
 </details>
 
 
@@ -57,7 +57,7 @@ I learned about multivariable calculus in spring quarter of freshman year in Mat
 
 ## First Principles Derivations
 ### Why use $r$ in cylindrical coordinate integrals and $\rho^2sin(\phi)$ in spherical coordinates?
-![[IMG_1583.jpeg]]
+![[IMG_1583.jpg]]
 
-![[IMG_1584.jpeg]]
+![[IMG_1584.jpg]]
 

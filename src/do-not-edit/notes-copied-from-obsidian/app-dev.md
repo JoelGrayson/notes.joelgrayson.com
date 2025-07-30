@@ -17,7 +17,7 @@ Menu {
 	Label("Actions", systemImage: "ellipsis")
 }
 ```
-![[06.03.2025 screenshot 1.png]]
+![[06.03.2025 screenshot.jpg]]
 
 
 * .contextMenu for long-press actions

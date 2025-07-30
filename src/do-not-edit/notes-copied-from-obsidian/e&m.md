@@ -52,7 +52,7 @@ I learned about electricity and magnetism in spring quarter of freshman year in 
 		* It is $2u$ if reflecting
 	* pressure - force per area
 	* intensity - power per area
-	  ![[06.04.2025 screenshot.png]]
+	  ![[06.04.2025 screenshot.jpg]]
 * Waves in general
 	* Period T - time taking for a wave to complete one full cycle (crest to crest or trough to trough)
 	* Frequency :: Hz = $s^{-1}$ - $\frac1T$ how many waves pass through a point for unit time
@@ -75,7 +75,7 @@ I learned about electricity and magnetism in spring quarter of freshman year in 
 		* Materials are weakly attracted. Too weak to pick up the material against its weight.
 		* Atoms are magnetic because of unpaired electrons but in random orientation. Putting them in a magnetic field aligns them, so they are attracted toward the magnet
 		* Paramagnet: aluminum
-		  ![[06.02.2025 screenshot 1.png]]
+		  ![[06.02.2025 screenshot 1.jpg]]
 	* Ferromagnetism - attract
 		- Magnetic domains (particles within a domain have the same alignment) which get aligned
 		- Magnetize - make the domains align
@@ -88,21 +88,21 @@ I learned about electricity and magnetism in spring quarter of freshman year in 
 * Battery EMF - internal voltage inside the battery, which includes an internal resistor
 
 
-![[Pasted image 20250605120321.png]]
+![[Pasted image 20250605120321.jpg]]
 ### Dielectrics
-![[Pasted image 20250605120331.png]]
-![[Pasted image 20250605120538.png]]
-![[Pasted image 20250605120554.png]]
-![[Pasted image 20250605120630.png]]
-![[Pasted image 20250605120638.png]]
+![[Pasted image 20250605120331.jpg]]
+![[Pasted image 20250605120538.jpg]]
+![[Pasted image 20250605120554.jpg]]
+![[Pasted image 20250605120630.jpg]]
+![[Pasted image 20250605120638.jpg]]
 
 
 # Derivations
 
 ### Deriving LR Circuit
 **Charging**
-![[IMG_1494.jpeg]]
-![[IMG_1495.jpeg]]
+![[IMG_1494.jpg]]
+![[IMG_1495.jpg]]
 * LR circuits
 	* time constant $\tau_L=\frac L R$
 	* energy stored $U_L=\frac12 LI^2$
@@ -111,27 +111,27 @@ I learned about electricity and magnetism in spring quarter of freshman year in 
 
 
 ### Deriving LRC Circuits
-![[Pasted image 20250605130427.png]]
+![[Pasted image 20250605130427.jpg]]
 
 ### Deriving RC Circuits
 **Charging**
-![[notes.joelgrayson.com/media/IMG_1554.jpeg]]
-![[IMG_1555.jpeg]]
+![[IMG_1554.jpg]]
+![[IMG_1555.jpg]]
 
 **Discharging**
-![[IMG_1556.jpeg]]
+![[IMG_1556.jpg]]
 
 ### Deriving $\vec F=I(d\vec l\times \vec B)$
 ![[e&m-magnetic-force.jpg]]
 
 ### Deriving Radius of Charge in Magnetic Field
-![[e&m-radius-of-charge-in-magnetic-field.jpeg]]
+![[e&m-radius-of-charge-in-magnetic-field.jpg]]
 
 
 
 ### Deriving Capacitance for Series & Parallel Capacitors
-![[Pasted image 20250605120502.png]]
+![[Pasted image 20250605120502.jpg]]
 
 ### Deriving Resistance for Series & Parallel Resistors
-![[Pasted image 20250605120524.png]]
+![[Pasted image 20250605120524.jpg]]
 
