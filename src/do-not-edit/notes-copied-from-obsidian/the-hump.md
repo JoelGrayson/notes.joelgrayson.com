@@ -1,5 +1,6 @@
 ---
 title: The Hump
+description: the Hump in WWII's China–Burma–India Theater
 ---
 * India China Wing (ICW) under AF10 -8/1/44→ India China Division (ICD) of ATC
 	* ICD also controlled XX Bomber Command's Second Mobile Transport Squadron

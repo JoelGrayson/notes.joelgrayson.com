@@ -1,5 +1,6 @@
 ---
 title: Mathematical Foundations of Computing
+description: proofs on set theory and graph theory, first-order logic, propositional logic, computability theory
 ---
 ### Computability Theory
 - Constructing NFAs

@@ -2,10 +2,11 @@ import compileMdx, { Params } from './processing/compileMdx';
 import { Metadata } from 'next';
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-    const { notFound, frontmatter, content }=await compileMdx(params);
+    const { notFound, frontmatter }=await compileMdx(params);
 
     return {
-        title: (typeof frontmatter.title==='string' ? frontmatter.title : 'Page Not Found')+' | Joel\'s Notes'
+        title: (typeof frontmatter.title==='string' ? frontmatter.title : 'Page Not Found')+' | Joel\'s Notes',
+        description: typeof frontmatter.description==='string' ? ('A note about '+frontmatter.description) : undefined
     };
 }
 

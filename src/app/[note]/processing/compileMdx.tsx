@@ -9,15 +9,16 @@ import obsidianImageToHTML from './obsidianImageToHTML';
 
 export type Params=Promise<{ note: string }>;
 
+/** @returns content is the JSX component of the content from the markdown note, frontmatter is a dictionary of the frontmatter fields such as title, notFound indicates if the passed in params are not found, urlTitle is a hyphenated title from the URL for identifying the note */
 export default async function compileMdx(params: Params) {
     const rawTitle=(await params).note;
     const urlTitle=decodeURIComponent(rawTitle); //hyphenated
     
-    let stringContent='';
+    let plainTextContent='';
     let notFound=false;
 
     try {
-        stringContent=await fs.readFile(
+        plainTextContent=await fs.readFile(
             path.join(process.cwd(), 'src/do-not-edit/notes-copied-from-obsidian', `${urlTitle}.md`),
             'utf-8'
         );
@@ -25,12 +26,12 @@ export default async function compileMdx(params: Params) {
         notFound=true;
     }
 
-    const processedContentString=obsidianImageToHTML(stringContent)
+    const processedString=obsidianImageToHTML(plainTextContent)
         .replace(/\u00A0/g, ' '); //removes the LaTeX incompatible input warning (nbsp)
 
     // console.log('Processed string (Obsidian images converted to HTML)', processedContentString);
     const { content, frontmatter }=await compileMDX({
-        source: processedContentString,
+        source: processedString,
         options: {
             mdxOptions: {
                 remarkPlugins: [remarkMath],

@@ -1,5 +1,6 @@
 ---
 title: Multivariable Calculus
+description: multivariable calculus (vector fields, vector/line integrals), spherical/cylindrical coordinates
 ---
 I learned about multivariable calculus in spring quarter of freshman year in Math 52: Integral Calculus of Several Variables.
 
@@ -8,7 +9,6 @@ I learned about multivariable calculus in spring quarter of freshman year in Mat
 * Spherical coordinates
 	* Colatitude $\phi$
 	* Azimuthal angle $\theta$
-
 * LatLng (except for GeoJSON where it is LngLat)
 	* Latitude $\phi$
 	* Longitude $\lambda$
