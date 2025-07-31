@@ -1,16 +1,24 @@
-# Mathematical Foundations of Computing
+---
+title: Mathematical Foundations of Computing
+---
 ### Computability Theory
+- Constructing NFAs
+	- Have the NFA guess the information you want and deterministically check if it is true (guess-and-check technique)
 * The following are equivalent: L is a regular language, there exists an NFA or DFA or regex called X such that $\mathscr L(X)=L$ (the language of X is L)
 * Kleene closure/star of a language L is L\*, which is the set of all strings that can be formed by concatenating any number of strings in L (e.g., L=\{a,b\} means L\*=\{ε, a, b, aa, ab, ba, bb, aaa, ...\})
+	* Formally, $L^\star=\{w\in\Sigma^\star~|~\exists n\in\mathbb N.w\in L^n~\}$
 * Closure properties of languages. If $L_1$ and $L_2$ are regular languages, so are these: $\overline {L_1},\quad L_1\cup L_2,\quad L_1\cap L_2,\quad L_1L_2,\quad L_1^*$
+* Language concatenation $L_1L_2$ is the language $\{xy~|~x\in L_1\land y\in L_2\}$
+	* xy is the strings x and y concatenated
 * Finite automaton - collection of states joined by transitions, has a start state
 	* Some states are accepting states. If automaton ends at accepting state, it accepts the input else rejects the input
 	* DFA (Deterministic Finite Automaton) - exactly 1 transition at each state for each symbol in $\Sigma$
-	* NFA (non-deterministic finite automaton) - each state has 0 or multiple transitions
+	* NFA (nondeterministic finite automaton) - each state has 0 or multiple transitions
 		* If there is one path that works, NFA accepts
 		* Path dies if cannot move at a certain symbol
 		* ε-transition - transition that doesn't consume input
 		* Works by perfect positive guessing or massive parallelism
+		* the term `nondeterministic` means the automaton has a finite number of choices (possibly 0) to make at a given point
 	* Subset construction (AKA powerset construction) is a method for turning an NFA into a DFA
 	* A language is regular if there is a DFA D (or NFA) such that $\mathcal L(D)=L$, in which case D `recognizes` L
 * Language - string\[\]

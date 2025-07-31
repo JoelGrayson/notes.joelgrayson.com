@@ -1,8 +1,9 @@
-# Multivariable Calculus
-
+---
+title: Multivariable Calculus
+---
 I learned about multivariable calculus in spring quarter of freshman year in Math 52: Integral Calculus of Several Variables.
 
-[Link to Openstax textbook](https://openstax.org/books/calculus-volume-3/pages/preface)
+[Link to OpenStax textbook](https://openstax.org/books/calculus-volume-3/pages/preface)
 
 * Spherical coordinates
 	* Colatitude $\phi$

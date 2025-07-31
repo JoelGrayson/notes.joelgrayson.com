@@ -1,4 +1,6 @@
-# Circuits
+---
+title: Circuits
+---
 This is a combination of knowledge that I have gained from ENGR 40M and EE 101A, both of which I took during summer quarter in 2025, and self-learning.
 
 * 

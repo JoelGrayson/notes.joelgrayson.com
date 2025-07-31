@@ -1,8 +1,9 @@
-# Electricity & Magnetism
-
+---
+title: Electricity & Magnetism
+---
 I learned about electricity and magnetism in spring quarter of freshman year in Physics 43: Electricity and Magnetism
 
-[Link to Openstax textbook](https://openstax.org/books/university-physics-volume-2/pages/preface)
+[Link to OpenStax textbook](https://openstax.org/books/university-physics-volume-2/pages/preface)
 
 * Electric field energy density $u_E=\frac12\epsilon_0E^2$ :: $J/m^3$
 * Magnetic field energy density $u_B=\frac12\frac{B^2}{\mu_0}$
