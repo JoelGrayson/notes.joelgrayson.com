@@ -6,6 +6,7 @@ I learned about electricity and magnetism in spring quarter of freshman year in 
 
 [Link to OpenStax textbook](https://openstax.org/books/university-physics-volume-2/pages/preface)
 
+- $v(t)=v(\infty)+[v(0^+)-v(\infty)]e^{(-t/\tau)}$ works for charging and recharging RC circuit
 * Electric field energy density $u_E=\frac12\epsilon_0E^2$ :: $J/m^3$
 * Magnetic field energy density $u_B=\frac12\frac{B^2}{\mu_0}$
 * Lorentz force $\vec F=q\vec E+q\vec v\times\vec B$

@@ -3,9 +3,32 @@ title: Mathematical Foundations of Computing
 description: proofs on set theory and graph theory, first-order logic, propositional logic, computability theory
 ---
 ### Computability Theory
+* Turing Machine
+	* Church–Turing thesis: a Turing machine can simulate every effective form of computation
+	* Terminology
+		* (accepts, rejects, loops) on a string
+		* halts - accepts or rejects
+		* does not accept - rejects or loops
+	* Recognizer - a Turing machine is a recognizer for $L$ ↔ (it will eventually accept an string $s$ ↔ $s\in L$)
+	* Recognizer
+		* A Turing machine $M$ recognizes (or is a recognizer for) a language $L$ if:
+			* If $s \in L$, $M$ eventually accepts $s$
+			* If $s \notin L$, $M$ either rejects $s$ or loops forever
+		* Formally, $∀w ∈ Σ^*. (w ∈ L ↔ M \text{ accepts } w)$
+		* Annoyingly, if you don't know if $w\in L$ and the TM is still running, you can't tell if it loops or just needs more time
+		* RE - set of all languages that are recognizable
+
+* Falsifiability - 
+* Myhill–Nerode Theorem - if $L$ is a language and $S$ is a distinguishing set of $L$ with infinitely many strings then $L$ is nonregular
+* Distinguishability - two strings $x$ and $y$ in $L^\star$ are distinguishable ($x\not\equiv_Ly$) if $xw\in L$ and $yw\not\in L$ (e.g., $x=aa$, $y=aaaa$, and $w=bb$)
+	- Formally, $\exists w\in\Sigma^\star.(xw\in L\leftrightarrow yw\not\in L)$
+	- Distinguishable if there is a string w you can add to one that will make it accepting but adding w to the other will make it rejected
+	- Distinguishing set - set where each item is distinguished from each other item
 - Constructing NFAs
 	- Have the NFA guess the information you want and deterministically check if it is true (guess-and-check technique)
-* The following are equivalent: L is a regular language, there exists an NFA or DFA or regex called X such that $\mathscr L(X)=L$ (the language of X is L)
+- Regular languages
+	* **Regular languages are problems that can be solved with finite memory**. Nonregular languages correspond to languages that cannot be solved with finite memory, such as $\{a^nb^n|n\in\mathbb N\}$.
+	* The following are equivalent: L is a regular language, there exists an NFA or DFA or regex called X such that $\mathscr L(X)=L$ (the language of X is L)
 * Kleene closure/star of a language L is L\*, which is the set of all strings that can be formed by concatenating any number of strings in L (e.g., L=\{a,b\} means L\*=\{ε, a, b, aa, ab, ba, bb, aaa, ...\})
 	* Formally, $L^\star=\{w\in\Sigma^\star~|~\exists n\in\mathbb N.w\in L^n~\}$
 * Closure properties of languages. If $L_1$ and $L_2$ are regular languages, so are these: $\overline {L_1},\quad L_1\cup L_2,\quad L_1\cap L_2,\quad L_1L_2,\quad L_1^*$
@@ -155,6 +178,10 @@ description: proofs on set theory and graph theory, first-order logic, propositi
 
 
 ### Derivations
+### Myhill-Nerode Theorem
+Myhill–Nerode Theorem: if L is a language and S is a distinguishing set for $L$ that contains infinitely many strings then $L$ is nonregular.
+Proof: Pick an arbitrary language $L$ and a distinguishing set for $L$ that contains infinitely many strings. We want to show that $L$ is nonregular. To do so, assume for the sake of contradiction that $L$ is regular. This means that there exists a DFA D such that $\mathscr L(D)=L$. Let $k$ be the number of states in $D$. Pick $k+1$ strings from $S$. Since we picked $k+1$ strings and there are $k$ states in the DFA, there must be one state with $2$ strings $s_m$ and $s_n$. Since $S$ is a distinguishing set, $s_m$ and $s_n$ cannot map to the same state of a DFA. We have reached a contradiction, so our earlier assumption must have been false. Therefore, $L$ is nonregular.
+
 #### $p\to q\equiv\lnot p\vee q$
 ![[implies-equivalence.jpg]]
 #### De Morgan's Laws

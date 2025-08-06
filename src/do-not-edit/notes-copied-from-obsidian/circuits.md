@@ -4,10 +4,60 @@ description: circuits, basic EE theory, logic gates/cMOS
 ---
 This is a combination of knowledge that I have gained from ENGR 40M and EE 101A, both of which I took during summer quarter in 2025, and self-learning.
 
-* 
+- Amplifiers
+	- Bias circuit - the part of the circuit that sets the DC voltage so the transistor can operate in a small-signal linear region without distortion
+	* Operating point - point at which load line (which describes all current-voltage pairs that the load constrains) matches the characteristic equation of the device
+		* Q-point - point at which signal voltage is 0 (quiescent as in dormant/inactive)
+	* Open circuit gain $A_{vo}$
+	* A VCCS is a transconductance amplifier
+	* transconductance $g_m$ indicates how much $i_D$ changes for small changes in $v_I$ AKA $v_{GS}$. How much is transferred over.
+		* $g_m\stackrel\Delta=\frac{i_D}{v_{GS}}|_Q$
+	* Drain resistance $r_0\stackrel\Delta=\frac{v_{DS}}{i_D}$
+* MOSFETs
+	* MOSFET acts as a VCCS with a transconductance $g_m$
+		* Operate in saturation region
+		* 
+	* CMOS - complementary MOS, manufacture nMOS and pMOS transistors on the same device
+	* body is connected to source for both nMOS and pMOS
+	- nMOS in enhancement-mode
+		- transconductance - $\frac{I_{OUT}}{V_{IN}}$, how much the current output changes based on how the input voltage is modified
+			- process transconductance $k'=\mu_n C_{ox}$
+				- mobility $\mu_n$
+		- $g_{DS} = \frac{1}{r_{DS}}=\mu C_{ox} \frac W L v_{ov}=k_nv_{OV}$ when $v_{DS}$ is negligible
+		- $I=g_{DS}v_{DS}$
+		- called enhancement-type MOSFET because increasing $v_{GS}$ above $V_t$ enhances the region's conductivity. For depletion-mode MOSFET, increasing $v_{GS}$ above $V_t$ depletes the region (stops it from conducting).
+		- $C_{ox}=\frac{\varepsilon_{ox}}{t_{ox}}$ where $\epsilon_{ox}=3.9\epsilon_0$
+		- Equations for the three regions (cutoff, triode, and saturation):![[nMOS-enhancement.jpg|300]]
+		* $k'=\mu C_{ox}$
+		* $k=\mu C_{ox}\frac W L$
+		* channel-length modulation occurs because as $v_{DS}$ increases, the channel length changes, changing the current
+* Drift velocity $v_D=\mu E$ where $\mu$ is the mobility
 * NOT, NAND, NOR Gates
   ![[NOT-NAND-NOR.jpg]]
 - Tellegen's theorem - in an electrical network, sum of instantaneous powers in all branches is 0
+* Diode
+	* Assuming
+		* Assume that it is ON ($V_f$ is reached). If we can show that there is a positive current through it, then there must be $V_f$ across the diode.
+		* Assume that it is OFF. If we can show that there is a voltage across it greater than $V_f$, then it must be ON.
+	* Assume all OFF. When in parallel and choosing which one to turn ON, choose the one with lower $V_f$
+	* Models
+		* ideal diode - V_f=0
+		* constant voltage drop model
+			* FKA piecewise linear model - V_f=0.7
+		* Shockley model $I = I_s \left( e^{\frac{V_D}{n V_T}} - 1 \right)$
+		* reverse bias model
+	* Open circuit voltage, short circuit current
+	* Ideal diode
+		* Acts like an open circuit when voltage less than the forward voltage
+		* Acts like a constant voltage source for voltages greater than the forward voltage
+		* Ideal diode's forward voltage is 0V
+	* p-n junction
+		* Depletion region
+	* Silicon diode forward voltage - 0.7 V
+	* Doping
+		* P-type doping - Boron, adds a hole
+		* N-type doping - Phosphorus, adds a free electron
+		![[Screenshot 2025-07-03 at 11.27.54 AM.jpg|150]]
 * High voltage is used in transmission because
 	* High voltage means that the current goes down for the same power because $P=IV$
 		* A lower current means that the voltage drop between the generator and substation, $V=IR$, is smaller since the $R$ of the transmission line is constant and the $I$ decreases. The voltage drop across the transmission lines modeled as resistors went down even though the voltage on the line is higher. With a constant R and a lower current with HV, $P_{\text{loss}}=I^2R$ goes down and $P_{\text{loss}}=\frac{V^2}R$ also goes down since V in the power equation measures the voltage drop, which went down.
@@ -61,6 +111,14 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 
 
 ## Derivations
+### RC Circuit
+![[RC-circuit.jpg]]
+
+
+### Deriving Triode Mode Current (Variable Resistor) Ignoring Channel Length Voltage Differences
+![[deriving-triode-mode-iv-relation-for-small-vds.jpg]]
+
+
 ### Derive Equivalent Inductance for Series and Parallel Inductors
 ![[derive-inductors-series-and-parallel.jpg]]
 
