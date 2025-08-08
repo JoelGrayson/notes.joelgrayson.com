@@ -1,24 +1,52 @@
 ---
 title: Circuits
-description: circuits, basic EE theory, logic gates/cMOS
+description: "basic EE theory: circuit analysis (nodal analysis/superposition), equations for diodes and MOSFETs, logic gates/cMOS, amplifiers"
 ---
 This is a combination of knowledge that I have gained from ENGR 40M and EE 101A, both of which I took during summer quarter in 2025, and self-learning.
 
-- Amplifiers
-	- Bias circuit - the part of the circuit that sets the DC voltage so the transistor can operate in a small-signal linear region without distortion
-	* Operating point - point at which load line (which describes all current-voltage pairs that the load constrains) matches the characteristic equation of the device
-		* Q-point - point at which signal voltage is 0 (quiescent as in dormant/inactive)
-	* Open circuit gain $A_{vo}$
-	* A VCCS is a transconductance amplifier
-	* transconductance $g_m$ indicates how much $i_D$ changes for small changes in $v_I$ AKA $v_{GS}$. How much is transferred over.
-		* $g_m\stackrel\Delta=\frac{i_D}{v_{GS}}|_Q$
-	* Drain resistance $r_0\stackrel\Delta=\frac{v_{DS}}{i_D}$
+- 
+* Four amplifier types
+	- ![[08.07.2025 screenshot 1.png|500]]
+	  These four are equivalent. It's like VCVS, CCCS, VCCS, and CCVS. To remember, think of transconductance as having the gain of conductance so output current/input voltage and for transresistance as having the gain of resistance so output voltage/input current.
+		- When there is an output voltage (for transresistance and voltage amplifier), it should be measured when the output terminals are open for there to be no current flowing through $R_o$ which would decrease $v_o$.
+		- When there is an output current, it should be measured when short-circuited so that none of the output current flows through $R_o$ (you get all the current flowing from the current source in $i_o$)
+		* trans - input and output of different types/at different places (voltage → current, current → voltage)
+		* m in $G_m$ and $R_m$ is for "mutual" like in "mutual inductance" because the current and voltage are at separate ports (similar to trans-)
+	- Equations for swapping between them using transformations (see derivation at [[#Four Interchangeable Amplifier Types]]): $A_{vo}=A_{is}\frac{R_o}{R_i}=G_mR_o=\frac{R_m}{R_i}$
+	- Three parameters necessary for forming an amplifier: $R_{\text{IN}}$, $R_{\rm OUT}$ and gain
+	- Gains
+		- $A_{vo}$/$A_{is}$/$G_m$/$R_m$ - for the voltage/current source (no loads)
+			- intrinsic gain
+		- $A_v$/$A_i$ - also considers $R_i$ and $R_o$
+			- loaded gain
+		- $G$ - everything, considers source resistance and multiple stages if applicable
+			- overall system gain
+	- CD Amplifier
+		- Source follower because $v_S$ follows $v_I$
+	- CS Amplifiers
+		- ![[08.07.2025 screenshot.png]]
+			- $r_o$ defines how leaky the transistor is due to channel-length modulation (increasing $v_{DS}$ also increases $i_D$). See [[#How $r_o$ works]]. Without channel-length modulation ($\lambda=0$), $r_o$ is $\infty$
+				- $r_o=\frac1{\lambda I_D'}$
+			- $R$ models the voltage source's real-world imperfection (cannot supply infinite current)
+			- Capacitors block out DC bias, just allowing the signal to pass through
+		- Gain $A_v=\frac{v_o}{v_i}=-g_m(r_o||r_D||r_L)$ - is lower when there's a load resistance
+			- When no load resistance, open circuit gain $A_{vo}=-g_m(r_o||r_D)$
+		- $R_D$ allows the output current to be converted into an output voltage
+		- Early voltage $V_A$ is $\frac1\lambda$ so $r_o=\frac{|V_A|}{I_D}$ meaning it's good if $V_A$ and $r_o$ are large because then the MOSFET is not very leaky
+		- Bias circuit - the part of the circuit that sets the DC voltage so the transistor can operate in a small-signal linear region without distortion
+		* Operating point - point at which load line (which describes all current-voltage pairs that the load constrains) matches the characteristic equation of the device
+			* Q-point - point at which signal voltage is 0 (quiescent as in dormant/inactive)
+		* A VCCS is a transconductance amplifier
+		* transconductance $g_m$ indicates how much $i_D$ changes for small changes in $v_I$ AKA $v_{GS}$. How much is transferred over.
+			* $g_m\stackrel\Delta=\frac{i_D}{v_{GS}}|_Q$
+		* Drain resistance $r_o\stackrel\Delta=\frac{v_{DS}}{i_D}$
 * MOSFETs
 	* MOSFET acts as a VCCS with a transconductance $g_m$
-		* Operate in saturation region
-		* 
+	* Operate in saturation region for amplifiers and triode region for CMOS
 	* CMOS - complementary MOS, manufacture nMOS and pMOS transistors on the same device
 	* body is connected to source for both nMOS and pMOS
+	* $r_o$ is for saturation
+	* $r_{DS}$ is for triode (variable resistor)
 	- nMOS in enhancement-mode
 		- transconductance - $\frac{I_{OUT}}{V_{IN}}$, how much the current output changes based on how the input voltage is modified
 			- process transconductance $k'=\mu_n C_{ox}$
@@ -32,8 +60,19 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 		* $k=\mu C_{ox}\frac W L$
 		* channel-length modulation occurs because as $v_{DS}$ increases, the channel length changes, changing the current
 * Drift velocity $v_D=\mu E$ where $\mu$ is the mobility
-* NOT, NAND, NOR Gates
-  ![[NOT-NAND-NOR.jpg]]
+* RC circuit (derivation at [[#RC Circuit]])
+	* In general, $V(t)=V(\infty)+[V(0^+)-V(\infty)]e^{-t/\tau}$
+		* I interpret this as the first term being the permanent response and the second being the transient response due to the $e^{-t/\tau}$ multiplier. Since a-b means to a from b, the sum is V(∞) + a vector that disappears with time that says go to V(0) from V(∞). Here it is animated:
+		  ![[rc-voltage.gif|300]]
+	* Charging
+		* $Q(t)=Q_{\text{charged}}(1-e^{-t/\tau})$
+		* $I(t)=\frac{V_b}Re^{-t/\tau}$
+		* $V(t)=V_b(1-e^{-t/\tau})$
+	* Discharging
+		* $Q(t)=Q_0e^{-t/\tau}$
+		* $I(t)=\frac{-V}Re^{-t/\tau}$
+		* $V(t)=V_0e^{-t/\tau}$
+* NOT, NAND, NOR Gates ![[NOT-NAND-NOR.jpg]]
 - Tellegen's theorem - in an electrical network, sum of instantaneous powers in all branches is 0
 * Diode
 	* Assuming
@@ -68,7 +107,7 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 	* Time constant $\tau=\frac{L}R$
 * Capacitors
 	* constant-voltage device
-	* RC charging: $v(t)=v(\infty)+(v(0^+)-v(\infty))e^{\frac{-t}{RC}}$
+	* Voltage cannot change instantaneously on a capacitor (unless we do dirac delta functions)
 	* $\epsilon_r=\frac\epsilon{\epsilon_0}$
 		* $\epsilon_r$ - relative dielectric constant
 		* $\epsilon$ - dielectric constant
@@ -111,12 +150,60 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 
 
 ## Derivations
-### RC Circuit
+### Four Interchangeable Amplifier Types
+![[four-interchangeable-amplifier-types.jpg]]
+
+
+### Amplifier $A_{vo}=-g_MR_D$
+Also, $|A_{v}|=g_mR_L'\approx g_mr_o=(\frac{2I_D}{V_{OV}})(\frac{1}{\lambda I_D})=\frac2{\lambda V_{OV}}$
+![[amplifier-Avo.jpg]]
+
+
+### Transconductance $g_M$ Expressed in More Ways
+In saturation, $g_M=k_nV_{OV}=\frac{2I_D}{V_{OV}}=\sqrt{2I_{DQ}k_n}$
+
+![[amplifier-derivation.jpg]]
+![[amplifier-derivation-2.jpg]]
+
+
+### Transconductance $g_M$ in the 3 MOSFET Modes
+$g_M=k_nv_{OV}$ in saturation
+$g_M=k_nv_{DS}$ in triode
+
+![[tidm-1.jpg]]
+![[tidm-2.jpg]]
+
+
+### Amplifier $i_D$
+![[amplifier-id-1.jpg]]
+![[amplifier-id-2.jpg]]
+
+
+### How $r_o$ works
+o in $r_o$ is for "output" as in "output resistance" since it models the leakiness of a current source. For an ideal current source, increasing the voltage wouldn't affect how much the current source delivers. For a non-ideal leaky current source (which $r_o$ simulates), increasing voltage ($v_{DS}$) also increases current output ($i_D$).
+$r_o=\frac1{\lambda I_D'}$
+![[how-r0-works.jpg]]
+
+
+### RC Circuit \#rc-deriv
 ![[RC-circuit.jpg]]
 
 
 ### Deriving Triode Mode Current (Variable Resistor) Ignoring Channel Length Voltage Differences
 ![[deriving-triode-mode-iv-relation-for-small-vds.jpg]]
+
+
+### Maximize $P_L$ by Changing $R_L$
+![[maximize-pl-by-changing-rl.jpg]]
+![[power-thoughts.jpg]]
+Conclusion: set $R_L=R_{Th}$ for most power output (but at 50% efficiency). Set $R_L>R_{Th}$ for more efficiency but drawing less power.
+
+### Thévenin Equivalent Circuit
+![[thevenin-equivalent-circuit.jpg]]
+
+
+### CMOS Must Invert
+![[cmos-must-invert.jpg]]
 
 
 ### Derive Equivalent Inductance for Series and Parallel Inductors
@@ -144,5 +231,4 @@ For parallel resistors, voltage is the same but current is divided across the re
 
 ### First Principles Thinking about Batteries in Series
 ![[first-principles-thinking-about-batteries-in-series.jpg]]
-
 

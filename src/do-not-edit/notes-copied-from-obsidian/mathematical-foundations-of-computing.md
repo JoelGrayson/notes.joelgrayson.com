@@ -4,26 +4,32 @@ description: proofs on set theory and graph theory, first-order logic, propositi
 ---
 ### Computability Theory
 * Turing Machine
-	* Church–Turing thesis: a Turing machine can simulate every effective form of computation
+	* Church–Turing thesis: a Turing machine can simulate every effective form of computation.
+		* In other words, no computation can be more effective than a Turing machine.
 	* Terminology
 		* (accepts, rejects, loops) on a string
-		* halts - accepts or rejects
+		* halts - accepts or rejects (does not loop)
 		* does not accept - rejects or loops
-	* Recognizer - a Turing machine is a recognizer for $L$ ↔ (it will eventually accept an string $s$ ↔ $s\in L$)
-	* Recognizer
+	* Decider - will always halt, never loops
+		* Definitely accepts $w$ when $w\in L$ and rejects $w$ when $w\not\in L$
+		* mn always decides (never loops)
+		* R - set of all languages that have a decider for it
+	* Recognizer - always accepts $w\in L$. Either rejects or loops on $w$ when $w\not\in L$
+		* a Turing machine is a recognizer for $L$ ↔ (it will eventually accept an string $s$ ↔ $s\in L$)
+		* mn always recognizes (always accepts when it should)
 		* A Turing machine $M$ recognizes (or is a recognizer for) a language $L$ if:
 			* If $s \in L$, $M$ eventually accepts $s$
 			* If $s \notin L$, $M$ either rejects $s$ or loops forever
 		* Formally, $∀w ∈ Σ^*. (w ∈ L ↔ M \text{ accepts } w)$
 		* Annoyingly, if you don't know if $w\in L$ and the TM is still running, you can't tell if it loops or just needs more time
-		* RE - set of all languages that are recognizable
+		* RE - set of all languages that have a recognizer for it
 
 * Falsifiability - 
 * Myhill–Nerode Theorem - if $L$ is a language and $S$ is a distinguishing set of $L$ with infinitely many strings then $L$ is nonregular
-* Distinguishability - two strings $x$ and $y$ in $L^\star$ are distinguishable ($x\not\equiv_Ly$) if $xw\in L$ and $yw\not\in L$ (e.g., $x=aa$, $y=aaaa$, and $w=bb$)
+* Distinguishability - two strings $x$ and $y$ in $\Sigma^\star$ are distinguishable ($x\not\equiv_Ly$) if $xw\in L$ and $yw\not\in L$ (e.g., $x=aa$, $y=aaaa$, and $w=bb$) for some string $w$
 	- Formally, $\exists w\in\Sigma^\star.(xw\in L\leftrightarrow yw\not\in L)$
-	- Distinguishable if there is a string w you can add to one that will make it accepting but adding w to the other will make it rejected
-	- Distinguishing set - set where each item is distinguished from each other item
+	- Layman: Distinguishable if there is a string w you can add to one that will make it accepting but adding w to the other will make it rejected
+	- Distinguishing set - set where each item is distinguishable from each other item
 - Constructing NFAs
 	- Have the NFA guess the information you want and deterministically check if it is true (guess-and-check technique)
 - Regular languages
