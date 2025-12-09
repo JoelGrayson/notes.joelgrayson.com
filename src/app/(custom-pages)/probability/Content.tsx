@@ -7,6 +7,10 @@ export function FP({ name }: { name: string }) {
     return <img src={`/media/probability/fp/${name}.jpg`} alt="" />;
 }
 
+export function Notes({ name }: { name: string }) {
+    return <img src={`/media/probability/notes/${name}.jpg`} alt="" />;
+}
+
 function FloatingWindow({ children, onClose }: { children: React.ReactNode; onClose: () => void }) {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [isDragging, setIsDragging] = useState(false);
@@ -220,10 +224,30 @@ export default function Content() {
         {/* Sigmoid */}
 
         <h2>Full Notes</h2>
-        <p>Rejection sampling</p>
-
-        <h2>Additional Thoughts</h2>
+        <Notes name="IMG_3613" />
         <FP name="dice" />
+        <Notes name="IMG_3614" />
+        <Notes name="IMG_3616" />
+        <Notes name="IMG_3617" />
+        <Notes name="IMG_3618" />
+        <Notes name="IMG_3619" />
+        <Notes name="IMG_3621" />
+        <Notes name="IMG_3622" />
+        <Notes name="IMG_3625" />
+        <Notes name="IMG_3626" />
+        <Notes name="IMG_3627" />
+        <Notes name="IMG_3628" />
+        <Notes name="IMG_3629" />
+        <Notes name="IMG_3630" />
+        <Notes name="IMG_3631" />
+        <Notes name="IMG_3632" />
+        <Notes name="IMG_3633" />
+        <Notes name="IMG_3634" />
+
+        <p>• Rejection sampling - count up the number of samples that satisfy a condition and divide by the number of total samples</p>
+        <p>• Procedural fairness - fairness through unawareness</p>
+        <p>• Distributive fairness - fairness through awareness</p>
+        <p>&emsp;o parity - arrest at the same rates</p>
 
         <h2>Additional First Principles Derivations</h2>
         <FP name="Independence" />
@@ -234,9 +258,5 @@ export default function Content() {
 }
 
 
-// Rejection sampling - count up the number of samples that satisfy a condition and divide by the number of total samples
-
-// Procedural fairness - fairness through unawareness
-// Distributive fairness - fairness through awareness
-//     parity - arrest at the same rates
+ 
 
