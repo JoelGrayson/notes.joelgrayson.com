@@ -17,12 +17,16 @@ export default async function Notes({ params }: { params: Params }) {
         return <Container>This note could not be found. Either it has not been created yet, was deleted, or was never created.</Container>;
 
     return <Container>
-        <h1 className='font-medium text-center'>{frontmatter.title as string}</h1>
+        <Title title={frontmatter.title as string} />
         {content}
     </Container>;
 }
 
-function Container({ children }: { children: React.ReactNode }) {
+export function Title({ title }: { title: string }) {
+    return <h1 className='font-medium text-center'>{title}</h1>;
+}
+
+export function Container({ children }: { children: React.ReactNode }) {
     return <div className='j_container' style={{ paddingBottom: 60 }}>
         {children}
     </div>;
