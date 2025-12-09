@@ -141,40 +141,95 @@ export default function Content() {
         )}
 
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/IMG_3608.jpg"
-            alt="Reference sheet 3"
-            circles={[]}
-        />
-        <ImageWithHotspots
-            src="/media/probability/reference-sheet/IMG_3606.jpg"
+            src="/media/probability/reference-sheet/1.jpg"
             alt="Reference sheet 1"
             circles={[
-                { x: 86, y: 82, onClick: () => setSelectedDerivation(<FP name="LOTP" />) },
+                { x: 26, y: 28, onClick: () => setSelectedDerivation(<FP name="binomial" />) },
+                { x: 57, y: 10, onClick: () => setSelectedDerivation(<FP name="Geo" />) },
+                { x: 88, y: 24, onClick: () => setSelectedDerivation(<FP name="NegBin" />) },
+                { x: 30, y: 19, onClick: () => setSelectedDerivation(<FP name="E-ber" />) },
+                { x: 30, y: 41, onClick: () => setSelectedDerivation(<FP name="E-bin" />) },
+                { x: 39, y: 22.5, onClick: () => setSelectedDerivation(<FP name="var-bern" />) },
+                { x: 35, y: 69.5, onClick: () => setSelectedDerivation(
+                    <>
+                        <FP name="poi-1" />
+                        <FP name="poi-2" />
+                    </>
+                ) },
+                { x: 89, y: 50, onClick: () => setSelectedDerivation(<FP name="z" />) },
             ]}
         />
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/IMG_3607.jpg"
+            src="/media/probability/reference-sheet/2.jpg"
             alt="Reference sheet 2"
-            circles={[]}
+            circles={[
+                { x: 78, y: 3, onClick: () => setSelectedDerivation(<><FP name="Bayes" /><FP name="Bayes-2" /></>) },
+                { x: 70, y: 81, onClick: () => setSelectedDerivation(<FP name="Chain Rule" />) },
+                { x: 86, y: 86, onClick: () => setSelectedDerivation(<FP name="LOTP" />) },
+                { x: 65.5, y: 64, onClick: () => setSelectedDerivation(<FP name="Mult" />) },
+                { x: 44, y: 45, onClick: () => setSelectedDerivation(<FP name="Beta" />) },
+            ]}
         />
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/IMG_3609.jpg"
-            alt="Reference sheet 4"
-            circles={[]}
+            src="/media/probability/reference-sheet/3.jpg"
+            alt="Reference sheet 3"
+            circles={[
+                { x: 72, y: 27, onClick: () => setSelectedDerivation(<FP name="calc-var" />) },
+                { x: 72, y: 27, onClick: () => setSelectedDerivation(<FP name="calc-var" />) },
+                { x: 97, y: 32, onClick: () => setSelectedDerivation(<FP name="var-aax" />) },
+            ]}
         />
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/IMG_3610.jpg"
+            // Convolutions
+            src="/media/probability/reference-sheet/4.jpg"
             alt="Reference sheet 4"
-            circles={[]}
+            circles={[
+                { x: 58, y: 27, onClick: () => setSelectedDerivation(<FP name="conv" />) },
+                { x: 80, y: 76, onClick: () => setSelectedDerivation(<FP name="lote" />) },
+            ]}
         />
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/IMG_3611.jpg"
-            alt="Reference sheet 4"
-            circles={[]}
+            src="/media/probability/reference-sheet/5.jpg"
+            alt="Reference sheet 5"
+            circles={[
+                { x: 54, y: 26, onClick: () => setSelectedDerivation(<FP name="uncertainty" />) },
+                { x: 38, y: 57, onClick: () => setSelectedDerivation(<FP name="Perplexity" />) },
+                { x: 32, y: 6, onClick: () => setSelectedDerivation(<FP name="sigmoid" />) },
+            ]}
         />
+        <ImageWithHotspots
+            src="/media/probability/reference-sheet/6.jpg"
+            alt="Reference sheet 6"
+            circles={[
+                { x: 60, y: 41, onClick: () => setSelectedDerivation(<FP name="MLE" />) },
+                { x: 37, y: 57.5, onClick: () => setSelectedDerivation(<>
+                    <FP name="MLE-Ber" />
+                    <h3>Way 2 using Y=sum of Xs:</h3>
+                    <FP name="MLE-Ber2" />
+                </>) },
+                { x: 39, y: 51.5, onClick: () => setSelectedDerivation(<FP name="MLE-Poi" />) },
+                { x: 42, y: 64, onClick: () => setSelectedDerivation(<><FP name="MLE-Normal" /><FP name="MLE-Normal-2" /></>) },
+                { x: 92, y: 60, onClick: () => setSelectedDerivation(<>
+                    <FP name="MLE-logreg-1" />
+                    <FP name="MLE-logreg-2" />
+                    <FP name="MLE-logreg-3" />
+                </>) },
+            ]}
+        />
+        {/* MLE-logreg-1, 2, 3 */}
+        {/* Sigmoid */}
 
         <h2>Full Notes</h2>
         <p>Rejection sampling</p>
+
+        <h2>Additional Thoughts</h2>
+        <FP name="dice" />
+
+        <h2>Additional First Principles Derivations</h2>
+        <FP name="Independence" />
+        <FP name="independence-symmetry-and-complement" />
+        <FP name="prior-posterior" />
+        <FP name="MLE-Pareto" />
     </>;
 }
 
