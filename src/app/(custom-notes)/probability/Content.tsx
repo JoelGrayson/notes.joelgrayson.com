@@ -169,7 +169,7 @@ export default function Content() {
             circles={[
                 { x: 78, y: 3, onClick: () => setSelectedDerivation(<><FP name="Bayes" /><FP name="Bayes-2" /></>) },
                 { x: 70, y: 81, onClick: () => setSelectedDerivation(<FP name="Chain Rule" />) },
-                { x: 86, y: 86, onClick: () => setSelectedDerivation(<FP name="LOTP" />) },
+                { x: 86, y: 86, onClick: () => setSelectedDerivation(<FP name="lotp" />) },
                 { x: 65.5, y: 64, onClick: () => setSelectedDerivation(<FP name="Mult" />) },
                 { x: 44, y: 45, onClick: () => setSelectedDerivation(<FP name="Beta" />) },
             ]}
