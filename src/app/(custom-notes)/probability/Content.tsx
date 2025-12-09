@@ -181,6 +181,7 @@ export default function Content() {
                 { x: 72, y: 27, onClick: () => setSelectedDerivation(<FP name="calc-var" />) },
                 { x: 72, y: 27, onClick: () => setSelectedDerivation(<FP name="calc-var" />) },
                 { x: 97, y: 32, onClick: () => setSelectedDerivation(<FP name="var-aax" />) },
+                { x: 74, y: 65, onClick: () => setSelectedDerivation(<FP name="population-variance" />) },
             ]}
         />
         <ImageWithHotspots
