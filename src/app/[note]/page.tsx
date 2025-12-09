@@ -1,3 +1,4 @@
+import { Container, Title } from './components';
 import compileMdx, { Params } from './processing/compileMdx';
 import { Metadata } from 'next';
 
@@ -20,15 +21,5 @@ export default async function Notes({ params }: { params: Params }) {
         <Title title={frontmatter.title as string} />
         {content}
     </Container>;
-}
-
-export function Title({ title }: { title: string }) {
-    return <h1 className='font-medium text-center'>{title}</h1>;
-}
-
-export function Container({ children }: { children: React.ReactNode }) {
-    return <div className='j_container' style={{ paddingBottom: 60 }}>
-        {children}
-    </div>;
 }
 

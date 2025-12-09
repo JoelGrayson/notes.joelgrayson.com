@@ -1,4 +1,4 @@
-import { Container, Title } from "@/app/[note]/page";
+import { Container, Title } from "@/app/[note]/components";
 import Content from "./Content";
 
 export default function Probability() {
