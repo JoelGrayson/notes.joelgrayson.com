@@ -205,15 +205,15 @@ export default function Content() {
             src="/media/probability/reference-sheet/6.jpg"
             alt="Reference sheet 6"
             circles={[
-                { x: 60, y: 41, onClick: () => setSelectedDerivation(<FP name="MLE" />) },
-                { x: 37, y: 57.5, onClick: () => setSelectedDerivation(<>
+                { x: 60, y: 41+16, onClick: () => setSelectedDerivation(<FP name="MLE" />) },
+                { x: 37, y: 57.5+12.5, onClick: () => setSelectedDerivation(<>
                     <FP name="MLE-Ber" />
                     <h3>Way 2 using Y=sum of Xs:</h3>
                     <FP name="MLE-Ber2" />
                 </>) },
-                { x: 39, y: 51.5, onClick: () => setSelectedDerivation(<FP name="MLE-Poi" />) },
-                { x: 42, y: 64, onClick: () => setSelectedDerivation(<><FP name="MLE-Normal" /><FP name="MLE-Normal-2" /></>) },
-                { x: 92, y: 60, onClick: () => setSelectedDerivation(<>
+                { x: 39, y: 51.5+14, onClick: () => setSelectedDerivation(<FP name="MLE-Poi" />) },
+                { x: 42, y: 64+10, onClick: () => setSelectedDerivation(<><FP name="MLE-Normal" /><FP name="MLE-Normal-2" /></>) },
+                { x: 92, y: 71.5, onClick: () => setSelectedDerivation(<>
                     <FP name="MLE-logreg-1" />
                     <FP name="MLE-logreg-2" />
                     <FP name="MLE-logreg-3" />
