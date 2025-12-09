@@ -135,7 +135,7 @@ export default function Content() {
 
     return <>
         <h1>Summary</h1>
-        <p>Here is the summary. You can click on any circles (d) for the derivation</p>
+        <p>Click on any <D/> for a derivation.</p>
 
         {/* Floating window with derivation */}
         {selectedDerivation && (
@@ -148,8 +148,8 @@ export default function Content() {
             src="/media/probability/reference-sheet/1.jpg"
             alt="Reference sheet 1"
             circles={[
-                { x: 26, y: 28, onClick: () => setSelectedDerivation(<FP name="binomial" />) },
-                { x: 57, y: 10, onClick: () => setSelectedDerivation(<FP name="Geo" />) },
+                { x: 47, y: 52, onClick: () => setSelectedDerivation(<FP name="binomial" />) },
+                { x: 60, y: 21, onClick: () => setSelectedDerivation(<FP name="Geo" />) },
                 { x: 88, y: 24, onClick: () => setSelectedDerivation(<FP name="NegBin" />) },
                 { x: 30, y: 19, onClick: () => setSelectedDerivation(<FP name="E-ber" />) },
                 { x: 30, y: 41, onClick: () => setSelectedDerivation(<FP name="E-bin" />) },
@@ -257,6 +257,23 @@ export default function Content() {
     </>;
 }
 
-
- 
+function D() {
+    return <button
+        style={{
+            width: '30px',
+            height: '30px',
+            borderRadius: '50%',
+            border: '2px solid #007bff',
+            backgroundColor: 'rgba(0, 123, 255, 0.2)',
+            color: '#007bff',
+            fontSize: '14px',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }}
+    >
+        d
+    </button>;
+}
 
