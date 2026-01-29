@@ -9,10 +9,10 @@ export default function Deriv({ children }: { children: ReactNode }) {
         <span className="inline">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center w-5 h-5 text-xs font-medium text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200 cursor-pointer border-none ml-1"
+                className="inline-flex items-center justify-center !px-1 !py-0.5 text-xs font-medium bg-blue-100 rounded-full hover:bg-blue-200 cursor-pointer border-none ml-1"
                 title="Show derivation"
             >
-                d
+                derivation
             </button>
 
             {isOpen && (

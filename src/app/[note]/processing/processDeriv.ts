@@ -31,11 +31,14 @@ export default function processDeriv(content: string): string {
             inDeriv = true;
             derivContent = [];
         } else if (trimmed.endsWith('end deriv')) {
-            // End of deriv block
+            // End of deriv block - append entire Deriv element inline to previous line
             inDeriv = false;
-            result.push('<Deriv>');
-            result.push(...derivContent);
-            result.push('</Deriv>');
+            const content = derivContent.map(l => l.trim()).join(' ');
+            if (result.length > 0) {
+                result[result.length - 1] += ` <Deriv>${content}</Deriv>`;
+            } else {
+                result.push(`<Deriv>${content}</Deriv>`);
+            }
         } else if (inDeriv) {
             // Inside deriv block - collect content
             derivContent.push(line);
