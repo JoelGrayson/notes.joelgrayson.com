@@ -6,6 +6,8 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import { TbExternalLink as OpenInNewTabIcon } from "react-icons/tb";
 import obsidianImageToHTML from './obsidianImageToHTML';
+import processDeriv from './processDeriv';
+import Deriv from './Deriv';
 
 export type Params=Promise<{ note: string }>;
 
@@ -26,9 +28,14 @@ export default async function compileMdx(params: Params) {
         notFound=true;
     }
 
-    const processedString=obsidianImageToHTML(plainTextContent)
-        .replace(/\u00A0/g, ' ') //removes the LaTeX incompatible input warning (nbsp)
-        .replace(/(?<!\n)\n(?!\n)/g, '\n\n'); //convert single newlines to paragraph breaks
+    const processedString=
+        processDeriv(
+            obsidianImageToHTML(
+                plainTextContent
+            )
+        )
+            .replace(/\u00A0/g, ' ') //removes the LaTeX incompatible input warning (nbsp)
+            .replace(/(?<!\n)\n(?!\n)/g, '\n\n'); //convert single newlines to paragraph breaks
 
     // console.log('Processed string (Obsidian images converted to HTML)', processedContentString);
     const { content, frontmatter }=await compileMDX({
@@ -50,7 +57,8 @@ export default async function compileMdx(params: Params) {
                     </div>
                     <object type="application/pdf" data={src} width={width} height={height} />
                 </div>;
-            }
+            },
+            Deriv
         }
     });
 
