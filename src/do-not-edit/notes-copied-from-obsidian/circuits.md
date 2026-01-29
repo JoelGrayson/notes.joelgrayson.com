@@ -1,10 +1,22 @@
 ---
 title: Circuits
-description: "basic EE theory: circuit analysis (nodal analysis/superposition), equations for diodes and MOSFETs, logic gates/cMOS, amplifiers"
+description: "basic EE theory: circuit analysis (nodal analysis/superposition), diodes and MOSFETs, logic gates/cMOS, amplifiers"
 ---
 This is a combination of knowledge that I have gained from ENGR 40M and EE 101A, both of which I took during summer quarter in 2025, and self-learning.
 
 - 
+* Phasors
+	* sin(x)=cos(x-90°)
+- Impedance $Z$
+	- $Z_C=\frac1{j\omega C}$
+	- $Z_L=j\omega L$
+	- $Z=R+jX$
+		- R - resistance
+		- X - **reactance**
+- Admittance $Y\equiv\frac1Z=G+jB$
+	- G - conductance
+	- B - **susceptance**
+- Capacitors have negative reactance and inductors have positive reactance
 * Four amplifier types
 	- ![[08.07.2025 screenshot 1.png|500]]
 	  These four are equivalent. It's like VCVS, CCCS, VCCS, and CCVS. To remember, think of transconductance as having the gain of conductance so output current/input voltage and for transresistance as having the gain of resistance so output voltage/input current.
@@ -40,6 +52,9 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 		* transconductance $g_m$ indicates how much $i_D$ changes for small changes in $v_I$ AKA $v_{GS}$. How much is transferred over.
 			* $g_m\stackrel\Delta=\frac{i_D}{v_{GS}}|_Q$
 		* Drain resistance $r_o\stackrel\Delta=\frac{v_{DS}}{i_D}$
+* Graphs
+	* voltage transfer characteristic (VTC) $v_{out}$-$v_{in}$ graph
+	* 
 * MOSFETs
 	* MOSFET acts as a VCCS with a transconductance $g_m$
 	* Operate in saturation region for amplifiers and triode region for CMOS
@@ -101,6 +116,12 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 	* High voltage means that the current goes down for the same power because $P=IV$
 		* A lower current means that the voltage drop between the generator and substation, $V=IR$, is smaller since the $R$ of the transmission line is constant and the $I$ decreases. The voltage drop across the transmission lines modeled as resistors went down even though the voltage on the line is higher. With a constant R and a lower current with HV, $P_{\text{loss}}=I^2R$ goes down and $P_{\text{loss}}=\frac{V^2}R$ also goes down since V in the power equation measures the voltage drop, which went down.
 * Inductor
+	* $L=k\mu AN^2$
+		* k - geometry
+		* $\mu$ - permeability
+		* A - cross-sectional area
+		* N - # turns
+	* Energy stored is $\frac12LI_{\rm final}^2$
 	* constant-current device
 	* $v=Li'$
 	* equivalent combinations like that of a resistor
@@ -150,6 +171,12 @@ This is a combination of knowledge that I have gained from ENGR 40M and EE 101A,
 
 
 ## Derivations
+### Op-Amp
+
+![[high-pass-filter.jpg]]
+![[low-pass-filter.jpg]]
+
+
 ### Four Interchangeable Amplifier Types
 ![[four-interchangeable-amplifier-types.jpg]]
 

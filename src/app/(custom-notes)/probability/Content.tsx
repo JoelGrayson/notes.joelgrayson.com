@@ -21,7 +21,7 @@ export default function Content() {
         )}
 
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/1.jpg"
+            src="/custom-media/probability/reference-sheet/1.jpg"
             alt="Reference sheet 1"
             circles={[
                 { x: 47, y: 52, onClick: () => setSelectedDerivation(<FP name="binomial" />) },
@@ -40,7 +40,7 @@ export default function Content() {
             ]}
         />
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/2.jpg"
+            src="/custom-media/probability/reference-sheet/2.jpg"
             alt="Reference sheet 2"
             circles={[
                 { x: 78, y: 3, onClick: () => setSelectedDerivation(<><FP name="Bayes" /><FP name="Bayes-2" /></>) },
@@ -51,7 +51,7 @@ export default function Content() {
             ]}
         />
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/3.jpg"
+            src="/custom-media/probability/reference-sheet/3.jpg"
             alt="Reference sheet 3"
             circles={[
                 { x: 72, y: 27, onClick: () => setSelectedDerivation(<FP name="calc-var" />) },
@@ -62,7 +62,7 @@ export default function Content() {
         />
         <ImageWithHotspots
             // Convolutions
-            src="/media/probability/reference-sheet/4.jpg"
+            src="/custom-media/probability/reference-sheet/4.jpg"
             alt="Reference sheet 4"
             circles={[
                 { x: 58, y: 27, onClick: () => setSelectedDerivation(<FP name="conv" />) },
@@ -70,7 +70,7 @@ export default function Content() {
             ]}
         />
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/5.jpg"
+            src="/custom-media/probability/reference-sheet/5.jpg"
             alt="Reference sheet 5"
             circles={[
                 { x: 54, y: 26, onClick: () => setSelectedDerivation(<FP name="uncertainty" />) },
@@ -79,7 +79,7 @@ export default function Content() {
             ]}
         />
         <ImageWithHotspots
-            src="/media/probability/reference-sheet/6.jpg"
+            src="/custom-media/probability/reference-sheet/6.jpg"
             alt="Reference sheet 6"
             circles={[
                 { x: 60, y: 41+16, onClick: () => setSelectedDerivation(<FP name="MLE" />) },
