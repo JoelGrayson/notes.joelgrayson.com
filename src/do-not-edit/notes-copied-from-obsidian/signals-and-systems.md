@@ -1,3 +1,7 @@
+---
+title: Signals & Systemes
+description:
+---
 - Signal - function dependent on 1+ arguments, usually describing a physical aspect of something
 	- One-dimensional signal - 1 argument
 	- Multi-dimensional signal - multiple arguments

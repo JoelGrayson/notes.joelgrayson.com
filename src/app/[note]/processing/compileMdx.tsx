@@ -27,7 +27,8 @@ export default async function compileMdx(params: Params) {
     }
 
     const processedString=obsidianImageToHTML(plainTextContent)
-        .replace(/\u00A0/g, ' '); //removes the LaTeX incompatible input warning (nbsp)
+        .replace(/\u00A0/g, ' ') //removes the LaTeX incompatible input warning (nbsp)
+        .replace(/(?<!\n)\n(?!\n)/g, '\n\n'); //convert single newlines to paragraph breaks
 
     // console.log('Processed string (Obsidian images converted to HTML)', processedContentString);
     const { content, frontmatter }=await compileMDX({
