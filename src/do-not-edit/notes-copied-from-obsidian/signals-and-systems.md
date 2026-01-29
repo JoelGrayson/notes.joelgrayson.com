@@ -1,5 +1,5 @@
 ---
-title: Signals & Systemes
+title: Signals & Systems
 description:
 ---
 - Signal - function dependent on 1+ arguments, usually describing a physical aspect of something

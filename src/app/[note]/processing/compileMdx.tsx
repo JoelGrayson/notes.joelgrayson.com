@@ -8,6 +8,9 @@ import { TbExternalLink as OpenInNewTabIcon } from "react-icons/tb";
 import obsidianImageToHTML from './obsidianImageToHTML';
 import processDeriv from './processDeriv';
 import Deriv from './Deriv';
+import { pipe } from './pipe';
+import removeLatexNbsp from './removeLatexNbsp';
+import singleEnterForNewP from './singleEnterForNewP';
 
 export type Params=Promise<{ note: string }>;
 
@@ -28,14 +31,8 @@ export default async function compileMdx(params: Params) {
         notFound=true;
     }
 
-    const processedString=
-        processDeriv(
-            obsidianImageToHTML(
-                plainTextContent
-            )
-        )
-            .replace(/\u00A0/g, ' ') //removes the LaTeX incompatible input warning (nbsp)
-            .replace(/(?<!\n)\n(?!\n)/g, '\n\n'); //convert single newlines to paragraph breaks
+    const processFn=pipe(singleEnterForNewP, removeLatexNbsp, obsidianImageToHTML, processDeriv);
+    const processedString=processFn(plainTextContent);
 
     // console.log('Processed string (Obsidian images converted to HTML)', processedContentString);
     const { content, frontmatter }=await compileMDX({

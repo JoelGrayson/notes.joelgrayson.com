@@ -41,7 +41,7 @@ export default function processDeriv(content: string): string {
             }
         } else if (inDeriv) {
             // Inside deriv block - collect content
-            derivContent.push(line);
+            derivContent.push('<p>'+line+'</p>');
         } else {
             // Outside deriv block - pass through
             result.push(line);
