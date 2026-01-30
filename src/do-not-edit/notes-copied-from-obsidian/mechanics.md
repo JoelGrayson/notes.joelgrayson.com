@@ -1,3 +1,8 @@
+---
+title: Mechanics
+description: 
+---
+
 * Centripetal acceleration $a_c = \frac{v^2}r$
 * Kinematics
 	* $x_f - x_i = \int_{t_0}^{t_f} v(t) dt$
