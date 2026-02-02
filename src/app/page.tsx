@@ -14,7 +14,7 @@ export default function Home() {
             <ul>
                 <li><Link href='/signals-and-systems'>Signals &amp; Systems (EE 102A)</Link></li>
                 <li><Link href='/probability'>Probability (CS 109)</Link></li>
-                <li><Link href='https://joelkit.com'>Algorithms (CS 161)</Link></li>
+                <li><Link href='https://joelkit.com'>Data Structures &amp; Algorithms (CS 161)</Link></li>
                 <li><Link href='/circuits'>Circuits (ENGR 40M and EE 101A)</Link></li>
                 <li><Link href='/mathematical-foundations-of-computing'>Mathematical Foundations of Computing (CS 103)</Link></li>
                 <li><Link href='/multivariable-calculus'>Multivariable Calculus (Math 52)</Link></li>

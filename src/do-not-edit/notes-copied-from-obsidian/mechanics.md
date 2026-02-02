@@ -3,6 +3,24 @@ title: Mechanics
 description: 
 ---
 
+| **Linear**                                                                                               | **Rotational**                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Displacement $\vec x$                                                                                    | Angle $\vec \theta$                                                                                                                                                 |
+| Mass $m$                                                                                                 | Moment of inertia $I=\alpha MR^2$ where $M$ is mass and $R$ is the largest distance a particle is from axis or $I=\sum m_ir_i^2$ for $i$th particle [$kg\cdot m^2$] |
+| Velocity $\vec v={\vec{\Delta x}\over\Delta t}$ [$\frac{m}s$]                                            | Angular velocity $\vec \omega=\frac{\Delta\vec \theta}{\Delta t}$ [$\frac{\text{rad}}{s}$] $v_t=  \vec \omega r$ ([$v_t$=tangential velocity] must be in rads)      |
+| Momentum $\vec p=m\vec v$ [$kg\cdot m\over s$]                                                           | Angular Momentum $\vec L=I\vec \omega$ [$kg\cdot m^2\over s$]                                                                                                       |
+| Impulse $\vec{\Delta p}=\vec{p_f}-\vec{p_0}$ \[ditto] $\vec{\Delta p}$ is also written as $J$            | Twirl  $\vec{\Delta L}=\vec{L_f}-\vec{L_i}$ - change in angular momentum                                                                                            |
+| Force $\vec F=\frac{\vec{\Delta p}}{\Delta t}$ - average impulse over time [$N$ or $kg\cdot m\over s^2$] | Torque $\vec \tau=\frac{\vec{\Delta L}}{\Delta t}$ - average twirling over time [$N\cdot m$ or $kg\cdot m^2\over s^2$]                                              |
+| Kinetic energy $K=\frac12mv^2$                                                                           | Rotational kinetic energy $K_{rot}=\frac12I\omega^2$                                                                                                                |
+
+- $L=mvr$
+	- deriv
+	  $L=I\omega$
+	  $=\alpha mr^2\omega$
+	  $=\alpha mr^2\frac v r$
+	  $=\alpha mrv$
+	  $=mvr$ when $\alpha==1$ for a point particle
+	  end deriv
 * Centripetal acceleration $a_c = \frac{v^2}r$
 * Kinematics
 	* $x_f - x_i = \int_{t_0}^{t_f} v(t) dt$
@@ -23,18 +41,7 @@ description:
 			* $v(t) = -A\omega\sin(\omega t)$
 			* $v_{\text{max}} = A\omega$ - magnitude of velocity when $x = 0$
 			* $T = {2\pi \over \omega}$
-
 - Momentum (conserved in collisions)
-
-| **Linear**            | **Rotational**                                                                                              |
-| --------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Displacement $\vec x$ | Angle $\vec \theta$                                                                                         |
-| Mass $m$              | Moment of inertia $I=\alpha MR^2$ where $M$ is mass and $R$ is the largest distance a particle is from axis or $I=\sum m_ir_i^2$ for $i$th particle [$kg\cdot m^2$] |
-| Velocity $\vec v={\vec{\Delta x}\over\Delta t}$ [$\frac{m}s$] | Angular velocity $\vec \omega=\frac{\Delta\vec \theta}{\Delta t}$ [$\frac{\text{rad}}{s}$] $v_t=|\vec \omega| r$ ([$v_t$=tangential velocity] must be in rads) |
-| Momentum $\vec p=m\vec v$ [$kg\cdot m\over s$] | Angular Momentum $\vec L=I\vec \omega$ [$kg\cdot m^2\over s$] |
-| Impulse $\vec{\Delta p}=\vec{p_f}-\vec{p_0}$ \[ditto] $\vec{\Delta p}$ is also written as $J$ | Twirl  $\vec{\Delta L}=\vec{L_f}-\vec{L_i}$ - change in angular momentum |
-| Force $\vec F=\frac{\vec{\Delta p}}{\Delta t}$ - average impulse over time [$N$ or $kg\cdot m\over s^2$] | Torque $\vec \tau=\frac{\vec{\Delta L}}{\Delta t}$ - average twirling over time [$N\cdot m$ or $kg\cdot m^2\over s^2$] |
-
 - $\Sigma E_i+W=\Sigma E_f$ - initial energy of system + work done on system = final energy of system
     - energy [$J$]
         - $K$ - kinetic energy (movement)

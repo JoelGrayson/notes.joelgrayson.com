@@ -1,6 +1,6 @@
 ---
 title: Signals & Systems
-description:
+description: 
 ---
 - Signal - function dependent on 1+ arguments, usually describing a physical aspect of something
 	- One-dimensional signal - 1 argument
@@ -67,12 +67,24 @@ description:
 	- Low-pass filter
 		- DT
 			- $y[n]=\sum_{k=-\infty}^n a^{n-k}x[k]$
+			- Difference equation: $y[n] = x[n]+ay[n-1]$
+			* deriv
+			  TODO
+			  end deriv
+			* Impulse response $h[n]=a^nu[n]$
+			* deriv
+			  TODO
+			  end deriv
 		- CT
 			- $y(t)=\frac1{\tau}\int_{-\infty}^t e^{-\frac{t-t'}\tau} x(t') dt'$
-			- $\tau y'(t) + y(t) = x(t)$
+			- Differential equation: $\tau y'(t) + y(t) = x(t)$
 			- deriv
 			  TODO
 			  end deriv
+		- When $0\lt a\lt 1$, low-pass filter
+		  When $a == 1$, running sum
+		  When $a \gt 1$, compound interest
+		  When $-1 \lt a \lt 0$, high-pass filter
 	- Squarer
 		- DT
 			- $y[n]=x^2[n]$
@@ -118,6 +130,11 @@ description:
 			  TODO
 			  end deriv
 		- $x(n)*\delta'(t)=x'(t)$ derivative
+	- $\int_{-\infty}^\infty y(t)dt = \int_{-\infty}^\infty x(t)dt \int_{-\infty}^\infty h(t)dt$
+		- deriv
+		  TODO
+		  end deriv
+		- This is a useful property to check that you did your convolution correctly
 - Properties
 	- Sampling property $x(t)\delta(t-t_0)=x(t_0)\delta(t-t_0)$
 		- mn you sample that point
@@ -130,7 +147,38 @@ description:
 	* DT $\sum_{k=0}^N a_k y[n-k]=\sum_{k=0}^Mb_kx[n-k]$
 	* CT $\sum_{k=0}^N a_k \frac{d^ky}{dt^k}(t)=\sum_{k=0}^Mb_k\frac{d^kx}{dt^k}(t)$
 
+<!-- chapter 3 -->
+- Signal transforms (frequency-domain transforms)
+	- Fourier series - for periodic signals (have power)
+		- Fourier series - CTFS
+		- Discrete Fourier series - DTFS
+	- Fourier transform - for aperiodic signals (have energy)
+		- Fourier transform - CTFT
+		- Discrete Fourier transform - DTFT
+	- Laplace transform - CT
+		- 
+	- Z-Transform - DT
+- Fourier series
+	- Basis function $\phi_k(t) = e^{jk\omega_0t}$
+	- Synthesis - representing a signal $x(t)$ by a Fourier series $\hat x(t)$ 
+		- $\displaystyle \hat x(t) = \sum_{k=-\infty}^{\infty} a_k e^{k\omega t}= \sum_{k=-\infty}^{\infty} a_k \phi_k(t)$
+	- Analysis - finding the fourier series coefficients $a_k$ to represent a signal $x(t)$
+		- $\displaystyle a_k=\frac1{T_0} \int_{T_0} x(t') e^{-jk\omega_0t'}dt'=\frac1{T_0} \int_{T_0} x(t') \phi_i^*(t')dt'$
+		- deriv
+		  ![[fourier-series-synthesis-and-analysis-1.png]]
+		  ![[fourier-series-synthesis-and-analysis-2.png]]
+		  end deriv
 
 
 ### Additional Notes
+* Helpful math
+	- $e^{j\theta}+e^{-j\theta}=2\cos\theta$
+	- $e^{j\theta}-e^{j\theta}=2j\cos\theta$
+	- deriv
+	  ![[01.30.2026 screenshot 000358.png]]
+	  end deriv
+	* Inner product $\langle x(t), y(t) \rangle = \int_{T_0} x(t)y^*(t)dt$
+		* CT version of dot product (DT)
+		* 
+
 ![[signals-and-systems-additional-notes-1.png]]
