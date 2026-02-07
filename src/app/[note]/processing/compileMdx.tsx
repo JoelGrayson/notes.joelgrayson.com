@@ -11,6 +11,7 @@ import Deriv from './Deriv';
 import { pipe } from './pipe';
 import removeLatexNbsp from './removeLatexNbsp';
 import singleEnterForNewP from './singleEnterForNewP';
+import stripComments from './stripComments';
 
 export type Params=Promise<{ note: string }>;
 
@@ -31,7 +32,7 @@ export default async function compileMdx(params: Params) {
         notFound=true;
     }
 
-    const processFn=pipe(singleEnterForNewP, removeLatexNbsp, obsidianImageToHTML, processDeriv);
+    const processFn=pipe(stripComments, singleEnterForNewP, removeLatexNbsp, obsidianImageToHTML, processDeriv);
     const processedString=processFn(plainTextContent);
 
     // console.log('Processed string (Obsidian images converted to HTML)', processedContentString);

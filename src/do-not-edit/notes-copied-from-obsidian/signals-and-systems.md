@@ -59,7 +59,6 @@ description:
 	- Step function $u(t)$ is 1 if $t\geq0$ else 0
 	- Ramp function $r(t)=\begin{cases} t&t\geq0\\0&\text{otherwise}\end{cases}$
 	- Rectangular pulse $\Pi(t) = \begin{cases} 1 & |t|\leq\frac12\\0&\text{otherwise} \end{cases}$
-	- 
 - Example systems
 	- Modulation
 		- $\underbrace{y(t)}_{\text{modulated signal}}=\underbrace{x(t)}_{\text{message signal}}~~\underbrace{\cos(\omega_ct)}_{\text{carrier signal}}$
@@ -81,7 +80,12 @@ description:
 			- deriv
 			  TODO
 			  end deriv
-		- When $0\lt a\lt 1$, low-pass filter
+			- Impulse response TODO
+			- Frequency response $H(j\omega)=\frac{1}{1+j\omega\tau}$
+				- deriv
+				  ![[02.06.2026 screenshot 000427.png]]
+				  end deriv
+		- When $0\lt a\lt 1$, low-pass filter ()
 		  When $a == 1$, running sum
 		  When $a \gt 1$, compound interest
 		  When $-1 \lt a \lt 0$, high-pass filter
@@ -91,6 +95,11 @@ description:
 		- CT
 			- $y(t) = x^2(t)$
 - Initial rest - $y[n]=0$ until $x[n]$ is non-zero
+- Fundamental frequency $\omega_0$
+  Frequency $\omega=k\omega_0$
+	- $\omega_k$ is a harmonic when $k$ is an integer
+		- $\omega_1$ is the first harmonic (the fundamental frequency)
+		- $\omega_2$ is the second harmonic - twice the fundamental frequency
 - Convolutions
 	- Convolving two signals—a(t) and b(t)—returns another signal c(t)
 	- CT $c(t) = a(t) * b(t) = \int_{k=-\infty}^{\infty} a(k)b(t-k)dk$
@@ -135,6 +144,24 @@ description:
 		  TODO
 		  end deriv
 		- This is a useful property to check that you did your convolution correctly
+	- Frequency response $H(j\omega)=\displaystyle\int_{-\infty}^\infty h(t)e^{-j\omega t}dt$
+		- deriv
+		  ![[02.02.2026 screenshot 000386.png]]
+		  end deriv
+		* AKA transfer function $H(s)=\int_{-\infty}^\infty h(t')e^{-st'}dt'$
+		* If $x(t)=e^{st}$ then $y(t)=H(s)e^{st}$
+			* deriv
+			  ![[02.06.2026 screenshot 000424.png]]
+			  end deriv
+		- How to calculate: through the equation given above with the impulse response or by substituting in $y(t)$ as $H(s)e^{st}$ and $x(t)$ with $e^{st}$
+		- Properties
+			- If impulse response $h(t)$ is real,
+				- $H^*(j\omega)=H(-j\omega)$
+					- deriv
+					  ![[02.06.2026 screenshot 000425.png]]
+					  end deriv
+				- Any real $x(t)$ will yield a real $y(t)$ <!-- txtbk p97 -->
+				- 
 - Properties
 	- Sampling property $x(t)\delta(t-t_0)=x(t_0)\delta(t-t_0)$
 		- mn you sample that point
@@ -162,23 +189,62 @@ description:
 	- Basis function $\phi_k(t) = e^{jk\omega_0t}$
 	- Synthesis - representing a signal $x(t)$ by a Fourier series $\hat x(t)$ 
 		- $\displaystyle \hat x(t) = \sum_{k=-\infty}^{\infty} a_k e^{k\omega t}= \sum_{k=-\infty}^{\infty} a_k \phi_k(t)$
-	- Analysis - finding the fourier series coefficients $a_k$ to represent a signal $x(t)$
-		- $\displaystyle a_k=\frac1{T_0} \int_{T_0} x(t') e^{-jk\omega_0t'}dt'=\frac1{T_0} \int_{T_0} x(t') \phi_i^*(t')dt'$
+	- Analysis - finding the Fourier series coefficients $a_k$ to represent a signal $x(t)$
+		- $\displaystyle a_k=\frac1{T_0} \int_{T_0} x(t') e^{-jk\omega_0t'}dt'=\frac1{T_0} \int_{T_0} x(t') \phi_k^*(t')dt'$
 		- deriv
 		  ![[fourier-series-synthesis-and-analysis-1.png]]
 		  ![[fourier-series-synthesis-and-analysis-2.png]]
 		  end deriv
+		* mn $a_kT_0$ is the product of inner product of $e^{jk\omega_0}$ and $\hat x(t)$ (approximation of x(t) with linear combo of exponentials) over one period, which is the RHS.
+		  mn $\int_{T_0} \hat x(t') e^{-jk\omega_0t'}dt'=\int_{T_0} x(t') e^{-jk\omega_0t'}dt'$
+		  LHS yields $\displaystyle \int_{T_0} \sum_{k'=-\infty}^{\infty} a_ke^{jk'\omega_0} e^{-jk\omega_0t'}dt'=a_kT_0$		  
+		- Examples
+			- Pulse train: $a_k=\frac{\omega_0T_1}\pi \operatorname{sinc}(\frac{k\omega_0T_1}\pi)$
+				- deriv
+				  ![[02.06.2026 screenshot 000421.png]]
+				  end deriv
+	* With LTI system H
+		* If $y(t)=H\{x(t)\}=H(j\omega)x(t)$ and $x(t)\stackrel{\rm FS}\leftrightarrow a_k$ then $y(t)\stackrel{\rm FS}\leftrightarrow a_kH(j\omega)$ due to linearity of H
+	* CTFS properties
+		* Parseval's identity $\displaystyle \langle x(t),y(t)\rangle = \int_{T_0} x(t)y^*(t)dt=T_0\sum_{k=-\infty}^\infty a_kb^*_k$ - relates the inner product of two signals to their FS coefficients
+			* deriv
+			  The first and second parts of the equation are from the definition of inner product. To get the third part of the equation, expand the Fourier series
+			  $\int_{T_0} \sum_{k=-\infty}^\infty a_ke^{jk\omega_0t}\sum_{k=-\infty}^\infty (b_ke^{jk\omega_0t})^*$
+			  $\int_{T_0} \sum_{k=-\infty}^\infty a_ke^{jk\omega_0t}(b_ke^{jk\omega_0t})^*$
+			  $\int_{T_0} \sum_{k=-\infty}^\infty a_ke^{jk\omega_0t}b_k^*e^{-jk\omega_0t}$ via conjugate distributes proof
+			  $\int_{T_0} \sum_{k=-\infty}^\infty a_kb_k^*$
+			  $T_0 \sum_{k=-\infty}^\infty a_kb_k^*$
+			  end deriv
+		* If $x(t)$ is real, $a_{-k}=a_{k}^*$
+			* deriv
+			  ![[02.06.2026 screenshot 000426.png]]
+			  end deriv
+		* If $x(t)$ is even and real, $a_k$ is even and real. If $x(t)$ is odd and real, $a_k$ is odd and imaginary
+			* deriv
+			  ![[02.06.2026 screenshot 000423.png]]
+			  end deriv
+		- T-shift delay: $x(t-t_0)\leftrightarrow a_k\textcolor{blue}{e^{-jk\omega_0t_0}}$ if $x(t)\leftrightarrow a_k$
+			- deriv
+			  ![[02.06.2026 screenshot 000428.png]]
+			  end deriv
 
 
 ### Additional Notes
 * Helpful math
 	- $e^{j\theta}+e^{-j\theta}=2\cos\theta$
-	- $e^{j\theta}-e^{j\theta}=2j\cos\theta$
+	- $e^{j\theta}-e^{-j\theta}=2j\sin\theta$
 	- deriv
 	  ![[01.30.2026 screenshot 000358.png]]
 	  end deriv
-	* Inner product $\langle x(t), y(t) \rangle = \int_{T_0} x(t)y^*(t)dt$
+	* Conjugation
+		* Conjugation distributes: $(ab)^*=a^*b^*$
+			* deriv
+			  ![[02.06.2026 screenshot 000422.png]]
+			  end deriv
+
+	* Inner product $\langle x(t), y(t) \rangle \stackrel\Delta= \int_{T_0} x(t)y^*(t)dt$
 		* CT version of dot product (DT)
 		* 
+
 
 ![[signals-and-systems-additional-notes-1.png]]

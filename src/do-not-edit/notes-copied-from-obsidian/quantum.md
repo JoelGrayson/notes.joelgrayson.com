@@ -3,6 +3,14 @@ title: Quantum Mechanics
 description: 
 ---
 
+- 
+- $E=\hbar\omega$
+	- deriv
+	  ![[02.01.2026 screenshot 000380.png]]
+	  end deriv
+- phase velocity $v_p$ - speed of individual wave ripples (one frequency)
+  group velocity $v_g$ - speed of the overall wave (all frequencies added together)
+	- Wave packet - sum of multiple frequencied waves such that it is collective in one place
 - $p=\hbar k$
 	- deriv
 	  $\lambda=\frac h p$ from De Broglie's relation
@@ -11,10 +19,12 @@ description:
 	  $p=\frac{hk}{2\pi}$
 	  $p=\hbar k$
 	  end deriv
-* $\omega=vk$
+* For light, $\omega=ck$ because speed of light is constant
 	* deriv
 	  ${2\pi\over T}=v{2\pi\over l}$ and $v=\frac l T$
 	  end deriv
+	* When v is not fixed, $\omega$ is a function of k: $\omega(k)$
+		* $k$ tells you how fast it moves in space while $\omega$ tells you how fast it oscillates in time
 - $L=n\hbar$
 	- deriv
 	  ![[02.01.2026 screenshot 000377.png]]
