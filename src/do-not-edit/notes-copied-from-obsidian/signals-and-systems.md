@@ -78,9 +78,13 @@ description:
 			- $y(t)=\frac1{\tau}\int_{-\infty}^t e^{-\frac{t-t'}\tau} x(t') dt'$
 			- Differential equation: $\tau y'(t) + y(t) = x(t)$
 			- deriv
-			  TODO
+			  FP with hand-wavy diffeq
+			  ![[02.12.2026 screenshot 000469.png]]
 			  end deriv
-			- Impulse response TODO
+			- Impulse response $h(t)=\frac1\tau e^{-\frac t\tau} u(t)$
+				- deriv
+				  ![[Pasted image 20260212163715.png]]
+				  end deriv
 			- Frequency response $H(j\omega)=\frac{1}{1+j\omega\tau}$
 				- deriv
 				  ![[02.06.2026 screenshot 000427.png]]
@@ -203,6 +207,7 @@ description:
 				- deriv
 				  ![[02.06.2026 screenshot 000421.png]]
 				  end deriv
+	* $\operatorname{sinc}(x)=\frac{\sin \pi x}{\pi x}$
 	* With LTI system H
 		* If $y(t)=H\{x(t)\}=H(j\omega)x(t)$ and $x(t)\stackrel{\rm FS}\leftrightarrow a_k$ then $y(t)\stackrel{\rm FS}\leftrightarrow a_kH(j\omega)$ due to linearity of H
 	* CTFS properties
@@ -214,6 +219,11 @@ description:
 			  $\int_{T_0} \sum_{k=-\infty}^\infty a_ke^{jk\omega_0t}b_k^*e^{-jk\omega_0t}$ via conjugate distributes proof
 			  $\int_{T_0} \sum_{k=-\infty}^\infty a_kb_k^*$
 			  $T_0 \sum_{k=-\infty}^\infty a_kb_k^*$
+			  end deriv
+		* Power
+			* deriv
+			  From Parseval's identity
+			  
 			  end deriv
 		* If $x(t)$ is real, $a_{-k}=a_{k}^*$
 			* deriv

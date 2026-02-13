@@ -41,6 +41,8 @@ description:
 			* $v(t) = -A\omega\sin(\omega t)$
 			* $v_{\text{max}} = A\omega$ - magnitude of velocity when $x = 0$
 			* $T = {2\pi \over \omega}$
+* $F=ma=\dot p$
+	* $ma=m\ddot x=\ddot {(mx)}=\dot {(mv)}=\dot p$
 - Momentum (conserved in collisions)
 - $\Sigma E_i+W=\Sigma E_f$ - initial energy of system + work done on system = final energy of system
     - energy [$J$]
