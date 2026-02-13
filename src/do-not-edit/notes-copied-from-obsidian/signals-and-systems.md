@@ -214,16 +214,13 @@ description:
 		* Parseval's identity $\displaystyle \langle x(t),y(t)\rangle = \int_{T_0} x(t)y^*(t)dt=T_0\sum_{k=-\infty}^\infty a_kb^*_k$ - relates the inner product of two signals to their FS coefficients
 			* deriv
 			  The first and second parts of the equation are from the definition of inner product. To get the third part of the equation, expand the Fourier series
-			  $\int_{T_0} \sum_{k=-\infty}^\infty a_ke^{jk\omega_0t}\sum_{k=-\infty}^\infty (b_ke^{jk\omega_0t})^*$
-			  $\int_{T_0} \sum_{k=-\infty}^\infty a_ke^{jk\omega_0t}(b_ke^{jk\omega_0t})^*$
-			  $\int_{T_0} \sum_{k=-\infty}^\infty a_ke^{jk\omega_0t}b_k^*e^{-jk\omega_0t}$ via conjugate distributes proof
-			  $\int_{T_0} \sum_{k=-\infty}^\infty a_kb_k^*$
-			  $T_0 \sum_{k=-\infty}^\infty a_kb_k^*$
+			  ![[02.12.2026 screenshot 000472.png]]
+			  ![[02.12.2026 screenshot 000473.png]]
 			  end deriv
-		* Power
+		* Power $\displaystyle P=\frac1{T_0}\int_{T_0}|x(t)|^2dt=\sum_{k=-\infty}^\infty|a_k|^2$
 			* deriv
 			  From Parseval's identity
-			  
+			  ![[02.12.2026 screenshot 000474.png]]
 			  end deriv
 		* If $x(t)$ is real, $a_{-k}=a_{k}^*$
 			* deriv
