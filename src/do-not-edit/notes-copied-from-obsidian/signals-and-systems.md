@@ -63,10 +63,14 @@ description:
 	- Modulation
 		- $\underbrace{y(t)}_{\text{modulated signal}}=\underbrace{x(t)}_{\text{message signal}}~~\underbrace{\cos(\omega_ct)}_{\text{carrier signal}}$
 			- $\omega_c$ is the carrier frequency
-	- Low-pass filter
+	- High-pass and low-pass filters
 		- DT
-			- $y[n]=\sum_{k=-\infty}^n a^{n-k}x[k]$
+			- $\displaystyle y[n]=\sum_{k=-\infty}^n a^{n-k}x[k]$
 			- Difference equation: $y[n] = x[n]+ay[n-1]$
+			- When $0\lt a\lt 1$, low-pass filter
+			  When $a == 1$, running sum
+			  When $a \gt 1$, compound interest
+			  When $-1 \lt a \lt 0$, high-pass filter
 			* deriv
 			  TODO
 			  end deriv
@@ -74,7 +78,7 @@ description:
 			* deriv
 			  TODO
 			  end deriv
-		- CT
+		- CT low-pass filter
 			- $y(t)=\frac1{\tau}\int_{-\infty}^t e^{-\frac{t-t'}\tau} x(t') dt'$
 			- Differential equation: $\tau y'(t) + y(t) = x(t)$
 			- deriv
@@ -89,10 +93,17 @@ description:
 				- deriv
 				  ![[02.06.2026 screenshot 000427.png]]
 				  end deriv
-		- When $0\lt a\lt 1$, low-pass filter ()
-		  When $a == 1$, running sum
-		  When $a \gt 1$, compound interest
-		  When $-1 \lt a \lt 0$, high-pass filter
+				- -3 dB is when the power is down by 1/2 which would correspond to $|H(j\omega)|$ being $\frac1{\sqrt{2}}$ which would correspond to $1=\omega\tau$ or $\omega=\frac1\tau$ so cutoff frequency $\omega_c=\frac1\tau$
+		- CT high-pass filter
+			- $\displaystyle y(t)=\frac1{\tau}\int_{-\infty}^t e^{-\frac{t-t'}\tau} \textcolor{blue}{x'(t')} dt'$
+			- Differential equation: $\tau y'+y=\tau x'$
+				- deriv
+				  ![[02.13.2026 screenshot 000477.png]]
+				  end deriv
+			- Frequency response $H(j\omega)=\frac\tau{1+j\omega\tau}$
+				- deriv
+				  ![[02.13.2026 screenshot 000478.png]]
+				  end deriv
 	- Squarer
 		- DT
 			- $y[n]=x^2[n]$
@@ -234,6 +245,7 @@ description:
 			- deriv
 			  ![[02.06.2026 screenshot 000428.png]]
 			  end deriv
+- Group delay $-\frac{d\angle H(j\omega)}{d\omega}$ - how delayed (phase-shifted) the components are based on their frequency
 
 
 ### Additional Notes
