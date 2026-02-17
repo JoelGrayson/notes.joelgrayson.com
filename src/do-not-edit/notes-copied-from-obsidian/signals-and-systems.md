@@ -43,9 +43,9 @@ description:
 			- Strategy when checking if time-invariant: write $x'(t)=x(t-t_0)$ to apply $H\{x'(t)\}$ and first find $y(t)$ then t-shift by $t_0$
 		- Time-variant - H applies a change to x(t) differently based on each t
 	* Linearity
-		* Linear iff $H\{a_1x_1(t)+a_2x_2(t)\}==a_1H\{x_1(t)\}+b_1H\{x_2(t)\}$
+		* Linear iff $H\{a_1x_1(t)+a_2x_2(t)\}==a_1H\{x_1(t)\}+a_2H\{x_2(t)\}$
 	* Causality
-		* Causal iff y\(t) dependent on only present and past values of x, that is $x(t')~~\forall ~t'\lt t$
+		* Causal iff y\(t) dependent on only present and past values of x, that is $x(t')~~\forall ~t'\le t$
 	* Real
 		* A real system maps real inputs to real outputs
 - Singularity functions is either $\infty$ or has no derivative at a point
@@ -100,9 +100,10 @@ description:
 				- deriv
 				  ![[02.13.2026 screenshot 000477.png]]
 				  end deriv
-			- Frequency response $H(j\omega)=\frac\tau{1+j\omega\tau}$
+			- Impulse response $h(t)=\delta(t)-\frac1\tau e^{-\frac t\tau}u(t)$
+			- Frequency response $H(j\omega)=\frac{j\omega\tau}{1+j\omega\tau}$
 				- deriv
-				  ![[02.13.2026 screenshot 000478.png]]
+				  ![[02.13.2026 screenshot 000479.png]]
 				  end deriv
 	- Squarer
 		- DT
@@ -201,6 +202,10 @@ description:
 		- 
 	- Z-Transform - DT
 - Fourier series
+	- DT version
+		- Basis function $\phi_k[n] = e^{ jk\frac{2\pi}{N} n}$
+		- Synthesis $\displaystyle \hat x[n]=\sum_{k=\langle N\rangle}a_ke^{ jk\frac{2\pi}{N} n}$
+		- Analysis $\displaystyle a_k=\frac1N\sum_{n=\langle N\rangle}x[n]e^{-jk\frac{2\pi}Nn}$
 	- Basis function $\phi_k(t) = e^{jk\omega_0t}$
 	- Synthesis - representing a signal $x(t)$ by a Fourier series $\hat x(t)$ 
 		- $\displaystyle \hat x(t) = \sum_{k=-\infty}^{\infty} a_k e^{k\omega t}= \sum_{k=-\infty}^{\infty} a_k \phi_k(t)$
