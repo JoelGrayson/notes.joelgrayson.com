@@ -19,4 +19,9 @@
 		* 5 + 4
 		* 9
 		* Yes it does
+* Geometric series
+	* $S_3=1+r+r^2$
+	* $S_n=t_0\frac{1-r^n}{1-r}$ where $n$ is the \#terms
+	* $S_\infty=t_0\frac{1}{1-r}$
+	* Avoiding fencepost error: $1+r+r^2+r^3=\frac{1-r^4}{1-r}$ ∵ 4 terms in series
 

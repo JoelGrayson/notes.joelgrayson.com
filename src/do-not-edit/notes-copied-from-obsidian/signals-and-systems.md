@@ -206,6 +206,7 @@ description:
 		- Basis function $\phi_k[n] = e^{ jk\frac{2\pi}{N} n}$
 		- Synthesis $\displaystyle \hat x[n]=\sum_{k=\langle N\rangle}a_ke^{ jk\frac{2\pi}{N} n}$
 		- Analysis $\displaystyle a_k=\frac1N\sum_{n=\langle N\rangle}x[n]e^{-jk\frac{2\pi}Nn}$
+		- Fundamental frequency $\Omega_0=\frac{2\pi}N$
 	- Basis function $\phi_k(t) = e^{jk\omega_0t}$
 	- Synthesis - representing a signal $x(t)$ by a Fourier series $\hat x(t)$ 
 		- $\displaystyle \hat x(t) = \sum_{k=-\infty}^{\infty} a_k e^{k\omega t}= \sum_{k=-\infty}^{\infty} a_k \phi_k(t)$
@@ -223,37 +224,114 @@ description:
 				- deriv
 				  ![[02.06.2026 screenshot 000421.png]]
 				  end deriv
+			* DT pulse train $a_k=\frac1N\frac{\sin(k2\pi (N_1+\frac12)/N)}{\sin(k\pi /N)}$ for period $N$ and pulse width $2N_1$
+				* deriv
+				  ![[02.19.2026 screenshot 000539.png]]
+				  end deriv
 	* $\operatorname{sinc}(x)=\frac{\sin \pi x}{\pi x}$
 	* With LTI system H
 		* If $y(t)=H\{x(t)\}=H(j\omega)x(t)$ and $x(t)\stackrel{\rm FS}\leftrightarrow a_k$ then $y(t)\stackrel{\rm FS}\leftrightarrow a_kH(j\omega)$ due to linearity of H
-	* CTFS properties
-		* Parseval's identity $\displaystyle \langle x(t),y(t)\rangle = \int_{T_0} x(t)y^*(t)dt=T_0\sum_{k=-\infty}^\infty a_kb^*_k$ - relates the inner product of two signals to their FS coefficients
-			* deriv
-			  The first and second parts of the equation are from the definition of inner product. To get the third part of the equation, expand the Fourier series
-			  ![[02.12.2026 screenshot 000472.png]]
-			  ![[02.12.2026 screenshot 000473.png]]
-			  end deriv
-		* Power $\displaystyle P=\frac1{T_0}\int_{T_0}|x(t)|^2dt=\sum_{k=-\infty}^\infty|a_k|^2$
-			* deriv
-			  From Parseval's identity
-			  ![[02.12.2026 screenshot 000474.png]]
-			  end deriv
-		* If $x(t)$ is real, $a_{-k}=a_{k}^*$
-			* deriv
-			  ![[02.06.2026 screenshot 000426.png]]
-			  end deriv
-		* If $x(t)$ is even and real, $a_k$ is even and real. If $x(t)$ is odd and real, $a_k$ is odd and imaginary
-			* deriv
-			  ![[02.06.2026 screenshot 000423.png]]
-			  end deriv
-		- T-shift delay: $x(t-t_0)\leftrightarrow a_k\textcolor{blue}{e^{-jk\omega_0t_0}}$ if $x(t)\leftrightarrow a_k$
-			- deriv
-			  ![[02.06.2026 screenshot 000428.png]]
-			  end deriv
+	* Properties given $x(t)\stackrel {\rm FS}\leftrightarrow a_k$ and $y(t)\stackrel{\rm FS}\leftrightarrow b_k$
+		* Both
+			- Linearity $Ax(t)+By(t)\leftrightarrow Aa_k+Bb_k$
+				- deriv
+				  ![[02.20.2026 screenshot 000548.png]]
+				  end deriv
+			- Power $\displaystyle P=\frac1{T_0}\int_{T_0}|x(t)|^2dt=\sum_{k=-\infty}^\infty|a_k|^2$
+				* deriv
+				  From Parseval's identity
+				  ![[02.12.2026 screenshot 000474.png]]
+				  end deriv
+			* If $x(t)$ is real, $a_{-k}=a_{k}^*$
+				* deriv
+				  ![[02.06.2026 screenshot 000426.png]]
+				  end deriv
+			* If $x(t)$ is even and real, $a_k$ is even and real. If $x(t)$ is odd and real, $a_k$ is odd and imaginary
+				* deriv
+				  ![[02.06.2026 screenshot 000423.png]]
+				  end deriv
+			- T-shift delay: $x(t-t_0)\leftrightarrow a_k\textcolor{blue}{e^{-jk\omega_0t_0}}$ if $x(t)\leftrightarrow a_k$
+				- deriv
+				  ![[02.06.2026 screenshot 000428.png]]
+				  end deriv
+		* CTFS
+			* Parseval's identity $\displaystyle \langle x(t),y(t)\rangle = \int_{T_0} x(t)y^*(t)dt=T_0\sum_{k=-\infty}^\infty a_kb^*_k$ - relates the inner product of two signals to their FS coefficients
+				* deriv
+				  The first and second parts of the equation are from the definition of inner product. To get the third part of the equation, expand the Fourier series
+				  ![[02.12.2026 screenshot 000472.png]]
+				  ![[02.12.2026 screenshot 000473.png]]
+				  end deriv
+		- DTFS
+			- 
 - Group delay $-\frac{d\angle H(j\omega)}{d\omega}$ - how delayed (phase-shifted) the components are based on their frequency
+- Continuous-time Fourier transform (CTFT)
+	- CTFT $\displaystyle X(j\omega)=\int_{-\infty}^\infty x(t) e^{-j\omega t}dt$
+		- AKA analysis equation ∵ analysis is extracting coeffs $\displaystyle X(j\omega)$
+		- $a_k=\frac1{T_0}X(j\omega)$
+	- Inverse CTFT $\displaystyle x(t)=\frac{1}{2\pi} \int_{-\infty}^\infty X(j\omega) e^{j\omega t}d\omega$
+		- deriv
+		  ![[02.20.2026 screenshot 000549.png]]
+		  end deriv
+		- AKA CTFT synthesis equation ∵ synthesis is synthesizing signal from coeffs
+		- mn synthesis has +$j\omega t$ because synthesis is about creating (positive) whereas analysis is about taking apart (negative) so it has a -$j\omega t$
+	- Notation
+		- CTFT operator $\operatorname F$: $F[x(t)]=X(j\omega)$ and $F^{-1}[X(j\omega)] = x(t)$
+		- CTFT pair: $x(t) \stackrel {F}\leftrightarrow X(j\omega)$
+	- If the Dirichlet conditions (below) are satisfied, then synthesized signal $\hat x(t)=x(t)$ except near $t$ when $x(t)$ has discontinuities and the energy difference between them vanishes: $\int_{-\infty}^\infty |x(t)-\hat x(t)|^2 dt=0$
+		- $x(t)$ is absolutely integrable $\int_{-\infty}^\infty |x(t)|<\infty$
+		- $x(t$) has a finite number of local minima and maxima in a finite interval
+		- $x(t)$ has a finite number of discontinuities in a finite interval
+		- $x(t)$'s discontinuities are all finite
+	- Examples
+		- $F\{ \Pi(\frac t {2T_1}) \} = 2T_1\operatorname{sinc} \frac{\omega T_1}\pi$
+			- deriv
+			  ![[02.20.2026 screenshot 000547.png]]
+			  end deriv
+		- $F\{1\}=2\pi\delta(\omega)$
+			- deriv
+			  ![[02.20.2026 screenshot 000552.png]]
+			  ![[02.20.2026 screenshot 000553.png]]
+			  end deriv
+		- $F\{\delta(t)\} = 1$
+			- deriv
+			  ![[02.20.2026 screenshot 000551.png]]
+			  end deriv
+		- $F\{\frac W \pi \operatorname{sinc} (\frac{Wt}\pi)\}=\Pi(\frac t {2W})$
+			- deriv
+			  ![[02.20.2026 screenshot 000555.png]]
+			  end deriv
+		- $F\{e^{j\omega_0t}\}=2\pi\delta(\omega-\omega_0)$
+			- deriv
+			  ![[02.20.2026 screenshot 000556.png]]
+			  end deriv
+		* From CTFS: $\displaystyle F\{x(t)\}=F\left\{\sum_{k=-\infty}^\infty a_k e^{jk\omega_0 t}\right\}=2\pi\sum_{k=-\infty}^\infty a_k\delta(\omega-k\omega_0)$
+			* deriv
+			  ![[02.20.2026 screenshot 000558.png]]
+			  end deriv
+		* Impulse train: $\displaystyle F\left\{\sum_{n=-\infty}^\infty\delta(t-nT_0)\right\}=\frac{2\pi}{T_0}\sum_{k=-\infty}^\infty\delta(\omega-k\omega_0)$
+			* deriv
+			  ![[02.20.2026 screenshot 000557.png]]
+			  end deriv
+		- ![[02.20.2026 screenshot 000554.png|300]]
+	- Properties
+		- Linearity
+		- Time shift $F\{x(t-t_0)\}=F\{x(t)\}e^{-j\omega t_0}$
+			- deriv
+			  ![[02.20.2026 screenshot 000559.png]]
+			  end deriv
+		- $F\{x^*(t)\}=X^*(-j\omega)$
+			- deriv
+			  ![[02.20.2026 screenshot 000560.png]]
+			  end deriv
+			- deriv
+			  ![[02.20.2026 screenshot 000560 1.png]]
+			  end deriv
+			- Corollary: if a signal x(t) is real, its CTFT has conjugate symmetry
+	- 
 
 
 ### Additional Notes
+- Conjugate symmetry: $f(x)=f(-x)^*$ means $f$ has conjugate symmetry
 * Helpful math
 	- $e^{j\theta}+e^{-j\theta}=2\cos\theta$
 	- $e^{j\theta}-e^{-j\theta}=2j\sin\theta$
@@ -265,10 +343,12 @@ description:
 			* deriv
 			  ![[02.06.2026 screenshot 000422.png]]
 			  end deriv
-
 	* Inner product $\langle x(t), y(t) \rangle \stackrel\Delta= \int_{T_0} x(t)y^*(t)dt$
 		* CT version of dot product (DT)
-		* 
+	* $\displaystyle \int_{-T}^T e^{j\omega t}dt = 2T\operatorname{sinc}\frac{\omega T}\pi$
+		* deriv
+		  ![[02.20.2026 screenshot 000550.png]]
+		  end deriv
 
 
 ![[signals-and-systems-additional-notes-1.png]]
