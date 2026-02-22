@@ -312,22 +312,75 @@ description:
 			* deriv
 			  ![[02.20.2026 screenshot 000557.png]]
 			  end deriv
+		- $F\{u(t)\}=\frac1{j\omega}+\pi\delta(\omega)$
+			- deriv
+			  ![[02.21.2026 screenshot 000568.png]]
+			  end deriv
+		- $F\{\cos(\omega_0 t)\} = \pi(\delta(\omega-\omega_0)+\delta(\omega+\omega_0))$
+			- deriv
+			  ![[02.21.2026 screenshot 000575.png]]
+			  end deriv
+		- $F\{\sin(\omega_0t)\}=\frac{\pi}j(\delta(\omega-\omega_0)-\delta(\omega+\omega_0))$
+			- deriv
+			  ![[02.21.2026 screenshot 000576.png]]
+			  end deriv
 		- ![[02.20.2026 screenshot 000554.png|300]]
 	- Properties
-		- Linearity
+		- Linearity: $Ax(t)+By(t)\overset F\leftrightarrow AX(j\omega)+BY(j\omega)$
+			- deriv
+			  ![[02.21.2026 screenshot 000563.png]]
+			  end deriv
+		- Time scaling: $x(at) \overset F \leftrightarrow \frac1{|a|}X(j\frac\omega a)$
+			- deriv
+			  ![[02.21.2026 screenshot 000562.png]]
+			  end deriv
+			- Corollary: $F\{x(-t)\} = X(-j\omega)$
+				- deriv
+			  ![[02.21.2026 screenshot 000561.png]]
+			  end deriv
 		- Time shift $F\{x(t-t_0)\}=F\{x(t)\}e^{-j\omega t_0}$
 			- deriv
 			  ![[02.20.2026 screenshot 000559.png]]
 			  end deriv
 		- $F\{x^*(t)\}=X^*(-j\omega)$
 			- deriv
-			  ![[02.20.2026 screenshot 000560.png]]
-			  end deriv
-			- deriv
 			  ![[02.20.2026 screenshot 000560 1.png]]
 			  end deriv
 			- Corollary: if a signal x(t) is real, its CTFT has conjugate symmetry
-	- 
+		- If $x(t)$ is real and even, $X(j\omega)$ is real and even
+		  If $x(t)$ is real and odd, $X(j\omega)$ is imaginary and odd
+			- deriv
+			  ![[02.21.2026 screenshot 000564.png]]
+			  end deriv
+		- $F\{\frac{dx}{dt}\}=j\omega X(j\omega)$ (differentiation)
+			- deriv
+			  ![[02.21.2026 screenshot 000566.png]]
+			  end deriv
+		- $F\{x(t)e^j{\omega_0t}\}=X(j(\omega-\omega_0))$ (frequency shifting)
+			- deriv
+			  ![[02.21.2026 screenshot 000567.png]]
+			  end deriv
+		* $\displaystyle F\left\{ \int_{-\infty}^t x(t') dt' \right\}=\frac1{j\omega}X(j\omega)+\pi X(j0)\delta(\omega)$
+		* $F\{tx(t)\}=j\frac{dX}{d\omega}(j\omega)$
+			* deriv
+			  ![[02.21.2026 screenshot 000568 1.png]]
+			  end deriv
+		* Parseval's identity: $\displaystyle \langle x(t),y(t)\rangle=\frac1{2\pi}\int_{-\infty}^\infty X(j\omega)Y^*(j\omega)d\omega$, which is $\displaystyle \int_{-\infty}^\infty x(t)y^*(t)dt$
+			* deriv
+			  ![[02.21.2026 screenshot 000570.png]]
+			  end deriv
+		- Energy of x(t) is $\displaystyle \frac1{2\pi}\int_{-\infty}^\infty |X(j\omega)|^2 d\omega$, which is also $\int_{-\infty}^\infty |x(t)|^2 dt=\langle x(t), x(t) \rangle$
+			- deriv
+			  ![[02.21.2026 screenshot 000572.png]]
+			  end deriv
+		- $F\{x(t)*y(t)\}=X(j\omega)Y(j\omega)$
+			- deriv
+			  ![[02.21.2026 screenshot 000571.png]]
+			  end deriv
+		- $\displaystyle F\{x(t)y(t)\}=\frac1{2\pi}X(j\omega)*Y(j\omega)$
+			- deriv
+			  TODO deriv
+			  end deriv
 
 
 ### Additional Notes

@@ -1,5 +1,12 @@
+---
+title: Math
+description: 
+---
 
-
+* $x=-x^*$ implies $x$ is purely imaginary #2.21.26-im
+	* deriv
+	  ![[02.21.2026 screenshot 000565.png]]
+	  end deriv
 - $\displaystyle \left(\sum_{l=1}^N a_l\right)\left(\sum_{k=1}^M b_k\right)=\sum_{l=1}^N\sum_{k=1}^Ma_lb_k$
 	- deriv
 	  ![[Pasted image 20260212172147.png]]
