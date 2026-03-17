@@ -3,6 +3,10 @@ title: Quantum Mechanics
 description: 
 ---
 
+* Particle in a box
+	* $V(x)=\infty$ except $V(x)=0$ in the box
+		* TISE tells us 
+* When there is 
 - Standing wave
 	- nodes - where the wave doesn't move at all
 - Interpretations

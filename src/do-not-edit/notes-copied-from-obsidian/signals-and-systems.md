@@ -37,11 +37,18 @@ description:
 	- Invertibility
 		- $H$ is invertible iff there exists system $H^{-1}$ such that if $y(t)=H\{x(t)\}$ then $x(t)=H^{-1}\{y(t)\}$
 	- Time-invariance
-		- Time-invariant iff t-shift then apply H is the same as apply H then t-shift
+		- Time-invariant iff t-shift then apply H is the same as apply H then t-shift. Time-variance means that it depends on absolute time.
 			- t-shift then apply H: $H\{x(t-t_0)\}$
 			- apply H then t-shift: $y(t-t_0)$
 			- Strategy when checking if time-invariant: write $x'(t)=x(t-t_0)$ to apply $H\{x'(t)\}$ and first find $y(t)$ then t-shift by $t_0$
-		- Time-variant - H applies a change to x(t) differently based on each t
+		- Time-variant - H applies a change to x(t) differently based on each absolute t
+		- Common examples
+			- Variant - depends on absolute time
+				- $y(t)=x(ct)$
+				- $y(t)=x(c)$
+				- $y(t)=tx(t)$
+			- Invariant
+				- y(t)=x(t-5)
 	* Linearity
 		* Linear iff $H\{a_1x_1(t)+a_2x_2(t)\}==a_1H\{x_1(t)\}+a_2H\{x_2(t)\}$
 	* Causality
@@ -53,9 +60,6 @@ description:
 	- Impulse function $\delta(t)$
 		- CT impulse function is also called the Dirac delta function (see [explanatory video here](https://youtu.be/znO9OqXJiDs))
 		- Unit doublet function $\delta'(t)=\frac{d\delta}{dt}(t)$
-			- deriv
-			  TODO
-			  end deriv
 	- Step function $u(t)$ is 1 if $t\geq0$ else 0
 	- Ramp function $r(t)=\begin{cases} t&t\geq0\\0&\text{otherwise}\end{cases}$
 	- Rectangular pulse $\Pi(t) = \begin{cases} 1 & |t|\leq\frac12\\0&\text{otherwise} \end{cases}$
@@ -125,11 +129,11 @@ description:
 			- deriv
 			  TODO
 			  end deriv
-	- Given a system H
+	- Given an LTI system H
 		- Impulse response $h(t)\triangleq H\{\delta(t)\}$
 			- $y[n] = x[n] * h[n]$
 				* deriv
-				  TODO
+				  ![[03.17.2026 screenshot 001078.png]]
 				  end deriv
 		- Step response $s(t)\triangleq H\{u(t)\}$
 			- 
@@ -202,11 +206,6 @@ description:
 		- 
 	- Z-Transform - DT
 - Fourier series
-	- DT version
-		- Basis function $\phi_k[n] = e^{ jk\frac{2\pi}{N} n}$
-		- Synthesis $\displaystyle \hat x[n]=\sum_{k=\langle N\rangle}a_ke^{ jk\frac{2\pi}{N} n}$
-		- Analysis $\displaystyle a_k=\frac1N\sum_{n=\langle N\rangle}x[n]e^{-jk\frac{2\pi}Nn}$
-		- Fundamental frequency $\Omega_0=\frac{2\pi}N$
 	- Basis function $\phi_k(t) = e^{jk\omega_0t}$
 	- Synthesis - representing a signal $x(t)$ by a Fourier series $\hat x(t)$ 
 		- $\displaystyle \hat x(t) = \sum_{k=-\infty}^{\infty} a_k e^{k\omega t}= \sum_{k=-\infty}^{\infty} a_k \phi_k(t)$
@@ -228,6 +227,11 @@ description:
 				* deriv
 				  ![[02.19.2026 screenshot 000539.png]]
 				  end deriv
+	* DT version
+		- Basis function $\phi_k[n] = e^{ jk\frac{2\pi}{N} n}$
+		- Synthesis $\displaystyle \hat x[n]=\sum_{k=\langle N\rangle}a_ke^{ jk\frac{2\pi}{N} n}$
+		- Analysis $\displaystyle a_k=\frac1N\sum_{n=\langle N\rangle}x[n]e^{-jk\frac{2\pi}Nn}$
+		- Fundamental frequency $\Omega_0=\frac{2\pi}N$
 	* $\operatorname{sinc}(x)=\frac{\sin \pi x}{\pi x}$
 	* With LTI system H
 		* If $y(t)=H\{x(t)\}=H(j\omega)x(t)$ and $x(t)\stackrel{\rm FS}\leftrightarrow a_k$ then $y(t)\stackrel{\rm FS}\leftrightarrow a_kH(j\omega)$ due to linearity of H
@@ -261,13 +265,12 @@ description:
 				  ![[02.12.2026 screenshot 000472.png]]
 				  ![[02.12.2026 screenshot 000473.png]]
 				  end deriv
-		- DTFS
-			- 
 - Group delay $-\frac{d\angle H(j\omega)}{d\omega}$ - how delayed (phase-shifted) the components are based on their frequency
 - Continuous-time Fourier transform (CTFT)
 	- CTFT $\displaystyle X(j\omega)=\int_{-\infty}^\infty x(t) e^{-j\omega t}dt$
 		- AKA analysis equation ∵ analysis is extracting coeffs $\displaystyle X(j\omega)$
 		- $a_k=\frac1{T_0}X(j\omega)$
+			- where $X(j\omega)$ is for aperiodic signal version (one period) and $a_k$ is for periodic signal (CTFS coeff)
 	- Inverse CTFT $\displaystyle x(t)=\frac{1}{2\pi} \int_{-\infty}^\infty X(j\omega) e^{j\omega t}d\omega$
 		- deriv
 		  ![[02.20.2026 screenshot 000549.png]]
@@ -324,7 +327,10 @@ description:
 			- deriv
 			  ![[02.21.2026 screenshot 000576.png]]
 			  end deriv
-		- ![[02.20.2026 screenshot 000554.png|300]]
+		- $F\{\operatorname{sgn}(t)\}=\frac2{j\omega}$
+			- deriv
+			  TODO
+			  end deriv
 	- Properties
 		- Linearity: $Ax(t)+By(t)\overset F\leftrightarrow AX(j\omega)+BY(j\omega)$
 			- deriv
@@ -336,8 +342,8 @@ description:
 			  end deriv
 			- Corollary: $F\{x(-t)\} = X(-j\omega)$
 				- deriv
-			  ![[02.21.2026 screenshot 000561.png]]
-			  end deriv
+				  ![[02.21.2026 screenshot 000561.png]]
+				  end deriv
 		- Time shift $F\{x(t-t_0)\}=F\{x(t)\}e^{-j\omega t_0}$
 			- deriv
 			  ![[02.20.2026 screenshot 000559.png]]
@@ -381,6 +387,12 @@ description:
 			- deriv
 			  TODO deriv
 			  end deriv
+* DTFS
+	* $\displaystyle X(e^{j\Omega})=\sum_{n=-\infty}^\infty x[n]e^{-j\Omega n}$ - analysis
+		* $a_k=\frac1NX(e^{j\Omega})$
+	* $\displaystyle x[n] = \sum_{k=\langle N \rangle} a_k e^{jk\Omega_0 n} \overset{F}{\leftrightarrow} X(e^{j\Omega}) = 2\pi \sum_{k=-\infty}^{\infty} a_k \delta(\Omega - k\Omega_0)$
+- DTFT 
+	- ![[03.06.2026 screenshot 000985.png]]
 
 
 ### Additional Notes
