@@ -47,7 +47,7 @@ I learned about multivariable calculus in spring quarter of freshman year in Mat
 
 <details>
 <summary>Old reference sheet</summary>
-![[IMG_1516.jpg]]
+<!-- IMG_1516.jpg -->
 ![[IMG_1517.jpg]]
 ![[IMG_1518.jpg]]
 </details>
