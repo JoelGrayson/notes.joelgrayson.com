@@ -87,7 +87,7 @@ description:
 				- deriv
 				  FP with hand-wavy diffeq
 				  ![[02.12.2026 screenshot 000469.png]]
-			  end deriv
+				  end deriv
 			- $y(t)=\frac1{\tau}\int_{-\infty}^t e^{-\frac{t-t'}\tau} x(t') dt'$
 			- Impulse response $h(t)=\frac1\tau e^{-\frac t\tau} u(t)$
 				- deriv
@@ -210,7 +210,6 @@ description:
 		- Fourier transform - CTFT
 		- Discrete Fourier transform - DTFT
 	- Laplace transform - CT
-		- 
 	- Z-Transform - DT
 - Fourier series
 	- Basis function $\phi_k(t) = e^{jk\omega_0t}$
@@ -287,6 +286,14 @@ description:
 	- Notation
 		- CTFT operator $\operatorname F$: $F[x(t)]=X(j\omega)$ and $F^{-1}[X(j\omega)] = x(t)$
 		- CTFT pair: $x(t) \stackrel {F}\leftrightarrow X(j\omega)$
+	- Eigenfunction of CT LTI system is $e^{jk\omega_0t}$
+		- deriv
+		  ![[03.17.2026 screenshot 001114.png]]
+		  end deriv
+	- $Y(j\omega)=X(j\omega)H(j\omega)$
+		- deriv
+		  ![[03.17.2026 screenshot 001115.png]]
+		  end deriv
 	- If the Dirichlet conditions (below) are satisfied, then synthesized signal $\hat x(t)=x(t)$ except near $t$ when $x(t)$ has discontinuities and the energy difference between them vanishes: $\int_{-\infty}^\infty |x(t)-\hat x(t)|^2 dt=0$
 		- $x(t)$ is absolutely integrable $\int_{-\infty}^\infty |x(t)|dt <\infty$
 		- $x(t$) has a finite number of local minima and maxima in a finite interval
@@ -335,9 +342,6 @@ description:
 			  ![[02.21.2026 screenshot 000576.png]]
 			  end deriv
 		- $F\{\operatorname{sgn}(t)\}=\frac2{j\omega}$
-			- deriv
-			  TODO
-			  end deriv
 	- Properties
 		- Linearity: $Ax(t)+By(t)\overset F\leftrightarrow AX(j\omega)+BY(j\omega)$
 			- deriv
@@ -392,13 +396,21 @@ description:
 			  end deriv
 		- $\displaystyle F\{x(t)y(t)\}=\frac1{2\pi}X(j\omega)*Y(j\omega)$
 			- deriv
-			  TODO deriv
+			  ![[03.17.2026 screenshot 001099.png]]
 			  end deriv
 * DTFS
 	* $\displaystyle X(e^{j\Omega})=\sum_{n=-\infty}^\infty x[n]e^{-j\Omega n}$ - analysis
 		* $a_k=\frac1NX(e^{jk\Omega_0})$
 	* $\displaystyle x[n] = \sum_{k=\langle N \rangle} a_k e^{jk\Omega_0 n} \overset{F}{\leftrightarrow} X(e^{j\Omega}) = 2\pi \sum_{k=-\infty}^{\infty} a_k \delta(\Omega - k\Omega_0)$
-- DTFT 
+	* Eigenfunction of DT LTI system is $z^n$. When $z=e^{j\Omega}$, we can use $H\{e^{j\Omega}\}=e^{j\Omega n}$
+		* deriv
+		  ![[03.17.2026 screenshot 001116.png]]
+		  end deriv
+	* $Y(j\omega)=X(j\Omega)H(j\Omega)$
+		* deriv
+		  ![[03.17.2026 screenshot 001117.png]]
+		  end deriv
+- DTFT
 	- ![[03.06.2026 screenshot 000985.png]]
 
 
@@ -410,9 +422,8 @@ description:
 	- deriv
 	  ![[01.30.2026 screenshot 000358.png]]
 	  end deriv
-	* Conjugation
-		* Conjugation distributes: $(ab)^*=a^*b^*$
-			* deriv
+	* Conjugation distributes: $(ab)^*=a^*b^*$
+		* deriv
 			  ![[02.06.2026 screenshot 000422.png]]
 			  end deriv
 	* Inner product $\langle x(t), y(t) \rangle \stackrel\Delta= \int_{T_0} x(t)y^*(t)dt$
