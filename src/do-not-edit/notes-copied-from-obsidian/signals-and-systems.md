@@ -69,26 +69,26 @@ description:
 			- $\omega_c$ is the carrier frequency
 	- High-pass and low-pass filters
 		- DT
-			- $\displaystyle y[n]=\sum_{k=-\infty}^n a^{n-k}x[k]$
 			- Difference equation: $y[n] = x[n]+ay[n-1]$
 			- When $0\lt a\lt 1$, low-pass filter
 			  When $a == 1$, running sum
 			  When $a \gt 1$, compound interest
 			  When $-1 \lt a \lt 0$, high-pass filter
-			* deriv
-			  TODO
-			  end deriv
 			* Impulse response $h[n]=a^nu[n]$
-			* deriv
-			  TODO
-			  end deriv
+				* deriv
+				  ![[03.17.2026 screenshot 001084.png]]
+				  end deriv
+			- $\displaystyle y[n]=\sum_{k=-\infty}^n a^{n-k}x[k]$
+				* deriv
+				  ![[03.17.2026 screenshot 001083.png]]
+				  end deriv
 		- CT low-pass filter
-			- $y(t)=\frac1{\tau}\int_{-\infty}^t e^{-\frac{t-t'}\tau} x(t') dt'$
 			- Differential equation: $\tau y'(t) + y(t) = x(t)$
-			- deriv
-			  FP with hand-wavy diffeq
-			  ![[02.12.2026 screenshot 000469.png]]
+				- deriv
+				  FP with hand-wavy diffeq
+				  ![[02.12.2026 screenshot 000469.png]]
 			  end deriv
+			- $y(t)=\frac1{\tau}\int_{-\infty}^t e^{-\frac{t-t'}\tau} x(t') dt'$
 			- Impulse response $h(t)=\frac1\tau e^{-\frac t\tau} u(t)$
 				- deriv
 				  ![[Pasted image 20260212163715.png]]
@@ -99,11 +99,11 @@ description:
 				  end deriv
 				- -3 dB is when the power is down by 1/2 which would correspond to $|H(j\omega)|$ being $\frac1{\sqrt{2}}$ which would correspond to $1=\omega\tau$ or $\omega=\frac1\tau$ so cutoff frequency $\omega_c=\frac1\tau$
 		- CT high-pass filter
-			- $\displaystyle y(t)=\frac1{\tau}\int_{-\infty}^t e^{-\frac{t-t'}\tau} \textcolor{blue}{x'(t')} dt'$
 			- Differential equation: $\tau y'+y=\tau x'$
 				- deriv
 				  ![[02.13.2026 screenshot 000477.png]]
 				  end deriv
+			- $\displaystyle y(t)=\frac1{\tau}\int_{-\infty}^t e^{-\frac{t-t'}\tau} \textcolor{blue}{x'(t')} dt'$
 			- Impulse response $h(t)=\delta(t)-\frac1\tau e^{-\frac t\tau}u(t)$
 			- Frequency response $H(j\omega)=\frac{j\omega\tau}{1+j\omega\tau}$
 				- deriv
@@ -125,10 +125,14 @@ description:
 	- CT $c(t) = a(t) * b(t) = \int_{k=-\infty}^{\infty} a(k)b(t-k)dk$
 	- DT $c[n] = a[n] * b[n] = \sum_{k=-\infty}^{\infty} a[k]b[n-k]$
 	- Convolution is linear
-		- Derivation showing convolution is commutative
-			- deriv
-			  TODO
-			  end deriv
+		- deriv
+		  To show that convolution is linear, we need to show that it satisfies additivity and homogeneity
+		  ![[03.17.2026 screenshot 001088.png]]
+		  end deriv
+	- Convolution is commutative
+		- deriv
+		  ![[03.17.2026 screenshot 001089.png]]
+		  end deriv
 	- Given an LTI system H
 		- Impulse response $h(t)\triangleq H\{\delta(t)\}$
 			- $y[n] = x[n] * h[n]$
@@ -136,32 +140,35 @@ description:
 				  ![[03.17.2026 screenshot 001078.png]]
 				  end deriv
 		- Step response $s(t)\triangleq H\{u(t)\}$
-			- 
 	- How to calculate convolution
 		- Method 1: Flip and drag
 			- Plot $h[k]$
 			- Plot $x[n-k]$ (which is $x[-(k-n)]$, a horizontal flip and then transform right by n)
 			- For each fixed value of n, take each k and multiply the two graphs, adding up all these terms to get $y[n]$
-		- Method 2: 
+		- Method 2: Express rectangles as singularity functions and apply special functions
+		- Method 3: symbolically
 	- Useful examples
-		- $x[n] * u[n] = \sum_{k=-\infty}^n x[k]$ running sum
+		- $\displaystyle x[n] * u[n] = \sum_{k=-\infty}^n x[k]$ running sum
 			- convolving with the step function gives a running sum
 			- deriv
-			  TODO
+			  ![[03.17.2026 screenshot 001090.png]]
 			  end deriv
 		- $x[n] * \delta[n] = x[n]$ identity
 			- convolving with the impulse function returns the identity
 			- deriv
-			  TODO
+			  ![[03.17.2026 screenshot 001091.png]]
 			  end deriv
 		- $x[n] * \delta[n-n_0] = x[n-n_0]$ delay
 			- deriv
-			  TODO
+			  ![[03.17.2026 screenshot 001092.png]]
 			  end deriv
-		- $x(n)*\delta'(t)=x'(t)$ derivative
+		- $x(t)*\delta'(t)=x'(t)$ derivative
+			- deriv
+			  ![[03.17.2026 screenshot 001094.png]]
+			  end deriv
 	- $\int_{-\infty}^\infty y(t)dt = \int_{-\infty}^\infty x(t)dt \int_{-\infty}^\infty h(t)dt$
 		- deriv
-		  TODO
+		  ![[03.17.2026 screenshot 001096.png]]
 		  end deriv
 		- This is a useful property to check that you did your convolution correctly
 	- Frequency response $H(j\omega)=\displaystyle\int_{-\infty}^\infty h(t)e^{-j\omega t}dt$
@@ -208,14 +215,14 @@ description:
 - Fourier series
 	- Basis function $\phi_k(t) = e^{jk\omega_0t}$
 	- Synthesis - representing a signal $x(t)$ by a Fourier series $\hat x(t)$ 
-		- $\displaystyle \hat x(t) = \sum_{k=-\infty}^{\infty} a_k e^{k\omega t}= \sum_{k=-\infty}^{\infty} a_k \phi_k(t)$
+		- $\displaystyle \hat x(t) = \sum_{k=-\infty}^{\infty} a_k e^{jk\omega_0 t}= \sum_{k=-\infty}^{\infty} a_k \phi_k(t)$
 	- Analysis - finding the Fourier series coefficients $a_k$ to represent a signal $x(t)$
 		- $\displaystyle a_k=\frac1{T_0} \int_{T_0} x(t') e^{-jk\omega_0t'}dt'=\frac1{T_0} \int_{T_0} x(t') \phi_k^*(t')dt'$
 		- deriv
 		  ![[fourier-series-synthesis-and-analysis-1.png]]
 		  ![[fourier-series-synthesis-and-analysis-2.png]]
 		  end deriv
-		* mn $a_kT_0$ is the product of inner product of $e^{jk\omega_0}$ and $\hat x(t)$ (approximation of x(t) with linear combo of exponentials) over one period, which is the RHS.
+		* mn $a_kT_0$ is the product of inner product of $e^{jk\omega_0t}$ and $\hat x(t)$ (approximation of x(t) with linear combo of exponentials) over one period, which is the RHS.
 		  mn $\int_{T_0} \hat x(t') e^{-jk\omega_0t'}dt'=\int_{T_0} x(t') e^{-jk\omega_0t'}dt'$
 		  LHS yields $\displaystyle \int_{T_0} \sum_{k'=-\infty}^{\infty} a_ke^{jk'\omega_0} e^{-jk\omega_0t'}dt'=a_kT_0$		  
 		- Examples
@@ -269,7 +276,7 @@ description:
 - Continuous-time Fourier transform (CTFT)
 	- CTFT $\displaystyle X(j\omega)=\int_{-\infty}^\infty x(t) e^{-j\omega t}dt$
 		- AKA analysis equation ∵ analysis is extracting coeffs $\displaystyle X(j\omega)$
-		- $a_k=\frac1{T_0}X(j\omega)$
+		- $a_k=\frac1{T_0}X(jk\omega_0)$
 			- where $X(j\omega)$ is for aperiodic signal version (one period) and $a_k$ is for periodic signal (CTFS coeff)
 	- Inverse CTFT $\displaystyle x(t)=\frac{1}{2\pi} \int_{-\infty}^\infty X(j\omega) e^{j\omega t}d\omega$
 		- deriv
@@ -281,7 +288,7 @@ description:
 		- CTFT operator $\operatorname F$: $F[x(t)]=X(j\omega)$ and $F^{-1}[X(j\omega)] = x(t)$
 		- CTFT pair: $x(t) \stackrel {F}\leftrightarrow X(j\omega)$
 	- If the Dirichlet conditions (below) are satisfied, then synthesized signal $\hat x(t)=x(t)$ except near $t$ when $x(t)$ has discontinuities and the energy difference between them vanishes: $\int_{-\infty}^\infty |x(t)-\hat x(t)|^2 dt=0$
-		- $x(t)$ is absolutely integrable $\int_{-\infty}^\infty |x(t)|<\infty$
+		- $x(t)$ is absolutely integrable $\int_{-\infty}^\infty |x(t)|dt <\infty$
 		- $x(t$) has a finite number of local minima and maxima in a finite interval
 		- $x(t)$ has a finite number of discontinuities in a finite interval
 		- $x(t)$'s discontinuities are all finite
@@ -299,7 +306,7 @@ description:
 			- deriv
 			  ![[02.20.2026 screenshot 000551.png]]
 			  end deriv
-		- $F\{\frac W \pi \operatorname{sinc} (\frac{Wt}\pi)\}=\Pi(\frac t {2W})$
+		- $F\{\frac W \pi \operatorname{sinc} (\frac{Wt}\pi)\}=\Pi(\frac \omega {2W})$
 			- deriv
 			  ![[02.20.2026 screenshot 000555.png]]
 			  end deriv
@@ -362,7 +369,7 @@ description:
 			- deriv
 			  ![[02.21.2026 screenshot 000566.png]]
 			  end deriv
-		- $F\{x(t)e^j{\omega_0t}\}=X(j(\omega-\omega_0))$ (frequency shifting)
+		- $F\{x(t)e^{j\omega_0t}\}=X(j(\omega-\omega_0))$ (frequency shifting)
 			- deriv
 			  ![[02.21.2026 screenshot 000567.png]]
 			  end deriv
@@ -389,7 +396,7 @@ description:
 			  end deriv
 * DTFS
 	* $\displaystyle X(e^{j\Omega})=\sum_{n=-\infty}^\infty x[n]e^{-j\Omega n}$ - analysis
-		* $a_k=\frac1NX(e^{j\Omega})$
+		* $a_k=\frac1NX(e^{jk\Omega_0})$
 	* $\displaystyle x[n] = \sum_{k=\langle N \rangle} a_k e^{jk\Omega_0 n} \overset{F}{\leftrightarrow} X(e^{j\Omega}) = 2\pi \sum_{k=-\infty}^{\infty} a_k \delta(\Omega - k\Omega_0)$
 - DTFT 
 	- ![[03.06.2026 screenshot 000985.png]]
