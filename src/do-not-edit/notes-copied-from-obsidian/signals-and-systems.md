@@ -283,7 +283,11 @@ description:
 		  end deriv
 		- AKA CTFT synthesis equation ∵ synthesis is synthesizing signal from coeffs
 		- mn synthesis has +$j\omega t$ because synthesis is about creating (positive) whereas analysis is about taking apart (negative) so it has a -$j\omega t$
-	- Notation
+		* This means that for frequency response $H(j\omega)$, $\displaystyle H\{x(t)\}=\frac{1}{2\pi} \int_{-\infty}^\infty X(j\omega) H(j\omega) e^{j\omega t}d\omega$
+		  $\displaystyle =\frac{1}{2\pi} \int_{-\infty}^\infty |X(j\omega)|e^{\langle X(j\omega)} |H(j\omega)|e^{\langle H(j\omega)}  e^{j\omega t}d\omega$
+		  $\displaystyle =\frac{1}{2\pi} \int_{-\infty}^\infty |X(j\omega)H(j\omega)|e^{\langle X(j\omega)+\langle H(j\omega)} e^{j\omega t}d\omega$
+		  so the phase distortion $\angle H(j\omega)$ tells you how much the frequencies are delayed
+	- Notation 
 		- CTFT operator $\operatorname F$: $F[x(t)]=X(j\omega)$ and $F^{-1}[X(j\omega)] = x(t)$
 		- CTFT pair: $x(t) \stackrel {F}\leftrightarrow X(j\omega)$
 	- Eigenfunction of CT LTI system is $e^{jk\omega_0t}$
